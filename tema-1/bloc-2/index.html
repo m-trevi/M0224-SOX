@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bloc 1.2: Dominis i Active Directory | Sistemes operatius en xarxa</title>
+<meta name="description" content="Materials del mòdul MP0224 - Sistemes operatius en xarxa (CFGM Sistemes microinformàtics i xarxes)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%96%A5%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/style.css">
+
+</head>
+<body data-mode="multi" data-root="../../">
+<a class="skip" href="#main-content">Salta al contingut principal</a>
+<header class="site-header">
+  <button id="navToggle" class="btn" aria-expanded="false" aria-controls="sidebar">☰ <span class="lbl">Navegació</span></button>
+  <a class="brand" href="../../"><span class="code">MP0224</span><span class="name">Sistemes operatius en xarxa</span></a>
+  <div class="header-actions"><button id="themeToggle" class="btn" aria-pressed="false">◐ <span class="lbl">Mode fosc</span></button></div>
+</header>
+<div class="layout">
+<aside class="sidebar" id="sidebar" aria-label="Navegació del curs">
+<div class="search-wrap"><input id="search" class="search" type="search" placeholder="Cerca al curs…" aria-label="Cerca al curs" autocomplete="off"><ul id="searchResults" class="search-results"></ul></div>
+<div class="nav-extra" style="border:0;margin-top:10px;padding-top:0"><a data-page="index" href="../../">Índex del curs</a><a data-page="avaluacio" href="../../avaluacio/">Avaluació i qualificació</a></div>
+<div class="nav-unit" style="--u:#7a4fd1"><a data-page="tema-1" href="../../tema-1/"><span class="dot"></span><span>Tema 1. Sistemes operatius propietaris en xarxa</span></a><ul>
+<li class=""><a data-page="tema-1/bloc-1" href="../../tema-1/bloc-1/">1.1 Instal·lació de Windows Server</a><ul class="nav-toc">
+<li><a data-sec="seccio-1" href="../../tema-1/bloc-1/#seccio-1">1. Sistemes operatius en xarxa</a></li>
+<li><a data-sec="seccio-2" href="../../tema-1/bloc-1/#seccio-2">2. Windows Server: versions i edicions</a></li>
+<li><a data-sec="seccio-3" href="../../tema-1/bloc-1/#seccio-3">3. Particions, sistemes d&#x27;arxius i arrencada</a></li>
+<li><a data-sec="seccio-4" href="../../tema-1/bloc-1/#seccio-4">4. Preparar la instal·lació</a></li>
+<li><a data-sec="seccio-5" href="../../tema-1/bloc-1/#seccio-5">5. Instal·lació pas a pas amb VirtualBox</a></li>
+<li><a data-sec="seccio-6" href="../../tema-1/bloc-1/#seccio-6">6. Configuració inicial, connectivitat i documentació</a></li>
+</ul></li>
+<li class="is-current"><a data-page="tema-1/bloc-2" href="../../tema-1/bloc-2/" aria-current="page">1.2 Dominis i Active Directory</a><ul class="nav-toc">
+<li><a data-sec="seccio-1" href="../../tema-1/bloc-2/#seccio-1">1. Del grup de treball al domini</a></li>
+<li><a data-sec="seccio-2" href="../../tema-1/bloc-2/#seccio-2">2. Estructura lògica: domini, arbre, bosc i UO</a></li>
+<li><a data-sec="seccio-3" href="../../tema-1/bloc-2/#seccio-3">3. Estructura física: controladors, llocs i rols</a></li>
+<li><a data-sec="seccio-4" href="../../tema-1/bloc-2/#seccio-4">4. Crear un domini</a></li>
+<li><a data-sec="seccio-5" href="../../tema-1/bloc-2/#seccio-5">5. Afegir un client al domini</a></li>
+<li><a data-sec="seccio-6" href="../../tema-1/bloc-2/#seccio-6">6. Segon controlador, despromoció i relacions de confiança</a></li>
+</ul></li>
+<li class=""><a data-page="tema-1/bloc-3" href="../../tema-1/bloc-3/">1.3 Usuaris, grups, perfils i directives de grup</a><ul class="nav-toc">
+<li><a data-sec="seccio-1" href="../../tema-1/bloc-3/#seccio-1">1. Comptes i identitats predeterminades</a></li>
+<li><a data-sec="seccio-2" href="../../tema-1/bloc-3/#seccio-2">2. Unitats organitzatives, usuaris i plantilles</a></li>
+<li><a data-sec="seccio-3" href="../../tema-1/bloc-3/#seccio-3">3. Grups</a></li>
+<li><a data-sec="seccio-4" href="../../tema-1/bloc-3/#seccio-4">4. Perfils d&#x27;usuari</a></li>
+<li><a data-sec="seccio-5" href="../../tema-1/bloc-3/#seccio-5">5. Directives de grup (GPO)</a></li>
+</ul></li>
+</ul></div>
+<div class="nav-unit soon" style="--u:#b04fc0"><span class="uname"><span class="dot"></span><span>Tema 2. Sistemes operatius lliures en xarxa <em>(aviat)</em></span></span><ul><li><span class="soon-item">2.1 Instal·lació i explotació d&#x27;Ubuntu Server</span></li><li><span class="soon-item">2.2 Usuaris, grups i permisos a Linux</span></li><li><span class="soon-item">2.3 Monitoratge, serveis i tasques automàtiques</span></li><li><span class="soon-item">2.4 Serveis de directori amb OpenLDAP</span></li><li><span class="soon-item">2.5 Autenticació d&#x27;usuaris: NSS, PAM i SSSD</span></li></ul></div>
+<div class="nav-unit soon" style="--u:#5a5fd4"><span class="uname"><span class="dot"></span><span>Tema 3. Compartició de recursos i seguretat <em>(aviat)</em></span></span><ul><li><span class="soon-item">3.1 Carpetes compartides i permisos a Windows Server</span></li><li><span class="soon-item">3.2 Impressores, còpies i auditoria a Windows Server</span></li><li><span class="soon-item">3.3 Compartir recursos a Linux: NFS, CUPS i còpies</span></li></ul></div>
+<div class="nav-unit soon" style="--u:#c0489f"><span class="uname"><span class="dot"></span><span>Tema 4. Integració de sistemes operatius lliures i propietaris <em>(aviat)</em></span></span><ul><li><span class="soon-item">4.1 Xarxes mixtes: Linux i Windows en un domini</span></li><li><span class="soon-item">4.2 Samba: fitxers i impressores entre Linux i Windows</span></li><li><span class="soon-item">4.3 Zentyal: un servidor de xarxa integrat</span></li></ul></div>
+<div class="nav-extra"><span style="font-size:.82rem;color:var(--muted)">Departament d'Informàtica<br>Institut F. Vidal i Barraquer · Tarragona<br>Curs 2025-2026 · v1.0</span></div>
+</aside>
+<main id="main-content">
+<div class="page" data-page="tema-1/bloc-2" data-title="Bloc 1.2: Dominis i Active Directory | Sistemes operatius en xarxa" data-unit="1" data-bloc="2" data-nunits="4" data-nblocs="3"><div class="content"><nav class="crumbs" aria-label="Ruta"><a data-page="index" href="../../">Inici</a> &gt; <a data-page="tema-1" href="../../tema-1/">Tema 1: Sistemes operatius propietaris en xarxa</a> &gt; Bloc 1.2: Dominis i Active Directory</nav><header class="block-head" style="--u:#7a4fd1"><h1>Bloc 1.2: Dominis i Active Directory</h1><p class="lead">Domini, arbre, bosc, UO, controlador de domini, clients al domini, segon DC i relacions de confiança.</p><div class="chips"><span class="chip unit">Tema 1</span><span class="chip">RA3</span><span class="chip">10 h</span></div></header><details class="ra-panel"><summary>Resultats d'aprenentatge i criteris d'avaluació d'aquest bloc</summary><div class="inner"><h4>RA3. Realitza tasques de gestió sobre dominis identificant necessitats i aplicant eines d&#x27;administració de dominis.</h4><ul><li><span class="num">3.1</span>Identifica la funció del servei de directori, els seus elements i nomenclatura.</li><li><span class="num">3.2</span>Reconeix el concepte de domini i les seves funcions.</li><li><span class="num">3.3</span>Estableix relacions de confiança entre dominis.</li><li><span class="num">3.4</span>Realitza la instal·lació del servei de directori.</li><li><span class="num">3.5</span>Realitza la configuració bàsica del servei de directori.</li><li><span class="num">3.6</span>Utilitza agrupacions d&#x27;elements per a la creació de models administratius.</li><li><span class="num">3.7</span>Analitza l&#x27;estructura del servei de directori.</li><li><span class="num">3.8</span>Utilitza eines d&#x27;administració de dominis.</li></ul></div></details><div class="intro"><p>Fins ara el vostre servidor és un ordinador més, amb els seus usuaris locals. En aquest bloc el converteixen en el cervell de la xarxa: un <strong>controlador de domini</strong> que autentica usuaris i equips. Veureu per què existeix Active Directory, com s'organitza, com es crea un domini, com s'hi afegeix un client i com es connecten dos dominis entre ells.</p></div><nav class="toc-inline" aria-label="Contingut del bloc"><h2>Contingut del bloc</h2><ol><li><a href="../../tema-1/bloc-2/#seccio-1">Del grup de treball al domini</a></li><li><a href="../../tema-1/bloc-2/#seccio-2">Estructura lògica: domini, arbre, bosc i UO</a></li><li><a href="../../tema-1/bloc-2/#seccio-3">Estructura física: controladors, llocs i rols</a></li><li><a href="../../tema-1/bloc-2/#seccio-4">Crear un domini</a></li><li><a href="../../tema-1/bloc-2/#seccio-5">Afegir un client al domini</a></li><li><a href="../../tema-1/bloc-2/#seccio-6">Segon controlador, despromoció i relacions de confiança</a></li></ol></nav><section class="sec" id="seccio-1"><h2>1. Del grup de treball al domini</h2><p>En un grup de treball cada ordinador té la seva pròpia llista d'usuaris. Si l'Anna vol entrar a tres ordinadors, ha de tenir tres comptes, amb tres contrasenyes que caldrà canviar per separat. Amb deu equips és molest; amb mil, inviable.</p>
+<p>Un <strong>domini</strong> resol això: hi ha un únic lloc on viuen tots els comptes i tots els equips confien en ell.</p>
+<div class="callout definicio"><p class="ctitle">Definició</p><p><strong>Servei de directori:</strong> base de dades jeràrquica i distribuïda que guarda informació sobre els objectes d'una xarxa (usuaris, equips, grups, impressores...) i permet consultar-la i administrar-la de manera centralitzada.</p>
+<p><strong>Active Directory (AD):</strong> servei de directori de Microsoft. <strong>Domini:</strong> límit d'administració i seguretat d'AD; tots els objectes comparteixen la mateixa base de dades i les mateixes polítiques.</p></div>
+<p>Active Directory no és una peça sola, sinó tres tecnologies que treballen juntes:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Tecnologia</th>
+<th>Funció dins del domini</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>LDAP</strong></td>
+<td>Llenguatge per consultar i modificar el directori (ho veureu a fons a la Tema 2)</td>
+</tr>
+<tr>
+<td><strong>Kerberos</strong></td>
+<td>Protocol d'autenticació: demostra qui sou sense enviar la contrasenya per la xarxa</td>
+</tr>
+<tr>
+<td><strong>DNS</strong></td>
+<td>Permet que els clients trobin els controladors de domini (registres SRV). <strong>Sense DNS no hi ha domini</strong></td>
+</tr>
+</tbody>
+</table></div>
+<div class="callout canvi"><p class="ctitle">Què ha canviat respecte dels apunts antics</p><p>Els apunts antics parlen d'un <strong>PDC</strong> (controlador principal) i d'un <strong>BDC</strong> (de còpia). Això és el model de Windows NT 4.0. Des de Windows 2000 tots els controladors de domini són iguals i accepten canvis (replicació <em>multi-mestre</em>). Només queden alguns rols especials que s'anomenen FSMO (els veureu més avall).</p></div>
+<figure class="diagram"><svg viewBox="0 0 760 320" role="img" aria-label="Autenticació Kerberos: el PC es valida al controlador de domini i rep una entrada per accedir a un servidor"><defs><marker id="m4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path class="ar2" d="M0 0L10 5L0 10z"/></marker></defs>
+<text class="sm" x="385" y="24" text-anchor="middle">📞 Primer, el DNS diu on és el controlador de domini</text>
+<rect class="box" x="20" y="40" width="170" height="86" rx="12"/><text class="ic" x="105" y="76" text-anchor="middle">💻</text><text class="b" x="105" y="110" text-anchor="middle">El teu PC</text>
+<rect class="hi" x="295" y="40" width="170" height="86" rx="12"/><text class="ic" x="380" y="76" text-anchor="middle">🖥️</text><text class="b" x="380" y="110" text-anchor="middle" style="font-size:13px">Controlador de domini</text>
+<rect class="box" x="570" y="40" width="170" height="86" rx="12"/><text class="ic" x="655" y="76" text-anchor="middle">📁</text><text class="b" x="655" y="110" text-anchor="middle">Servidor de fitxers</text>
+<path class="ln2" d="M192 66 L293 66" marker-end="url(#m4)"/><path class="ln2" d="M293 100 L192 100" marker-end="url(#m4)"/><path class="ln2" d="M105 128 Q380 230 645 130" marker-end="url(#m4)"/>
+<circle class="ac" cx="242" cy="66" r="11"/><text class="on" x="242" y="71" text-anchor="middle">1</text>
+<circle class="ac" cx="242" cy="100" r="11"/><text class="on" x="242" y="105" text-anchor="middle">2</text>
+<circle class="ac" cx="380" cy="190" r="11"/><text class="on" x="380" y="195" text-anchor="middle">3</text>
+<text class="b" x="655" y="150" text-anchor="middle">4 · ✅</text>
+<text x="20" y="228">1  Dius «sóc l'Anna» i escrius la contrasenya (una sola vegada).</text>
+<text x="20" y="250">2  El controlador la comprova i et dona una entrada 🎟️ (tiquet Kerberos).</text>
+<text x="20" y="272">3  Ensenyes l'entrada al servidor de fitxers, sense tornar a escriure res.</text>
+<text x="20" y="294">4  El servidor et deixa passar o no, segons els permisos que tinguis.</text>
+
+</svg><figcaption>És com una entrada de concert: la compres una vegada i et deixen passar a tot arreu que la vegin.</figcaption></figure></section><section class="sec" id="seccio-2"><h2>2. Estructura lògica: domini, arbre, bosc i UO</h2><h3>Els nivells</h3>
+<ul>
+<li><strong>Domini:</strong> unitat bàsica. Es nomena amb un nom DNS, per exemple <code>empresa.local</code>.</li>
+<li><strong>Arbre:</strong> conjunt de dominis que comparteixen un espai de noms continu. <code>vendes.empresa.local</code> és un domini fill de <code>empresa.local</code>.</li>
+<li><strong>Bosc (<em>forest</em>):</strong> conjunt d'un o més arbres que comparteixen esquema i catàleg global. És el límit de seguretat real d'Active Directory.</li>
+</ul>
+<figure class="diagram"><svg viewBox="0 0 760 310" role="img" aria-label="Un bosc format per dos arbres de dominis">
+<rect class="box" x="10" y="10" width="740" height="290" rx="14" stroke-dasharray="6 5"/>
+<text class="sm" x="26" y="34">Bosc: comparteix esquema i catàleg global</text>
+<text class="b" x="60" y="68">Arbre 1</text>
+<text class="b" x="500" y="68">Arbre 2</text>
+<rect class="hi" x="60" y="80" width="200" height="52" rx="8"/>
+<text class="b" x="160" y="104" text-anchor="middle">empresa.local</text>
+<text class="sm" x="160" y="122" text-anchor="middle">domini arrel de l'arbre</text>
+<rect class="box" x="24" y="200" width="180" height="52" rx="8"/>
+<text x="114" y="224" text-anchor="middle">vendes.empresa.local</text>
+<text class="sm" x="114" y="242" text-anchor="middle">domini fill</text>
+<rect class="box" x="230" y="200" width="200" height="52" rx="8"/>
+<text x="330" y="224" text-anchor="middle">tarragona.empresa.local</text>
+<text class="sm" x="330" y="242" text-anchor="middle">domini fill</text>
+<path class="ln" d="M160 132 L114 200 M160 132 L330 200"/>
+<rect class="hi" x="500" y="80" width="200" height="52" rx="8"/>
+<text class="b" x="600" y="104" text-anchor="middle">altra.org</text>
+<text class="sm" x="600" y="122" text-anchor="middle">domini arrel de l'arbre</text>
+<rect class="box" x="510" y="200" width="180" height="52" rx="8"/>
+<text x="600" y="224" text-anchor="middle">girona.altra.org</text>
+<text class="sm" x="600" y="242" text-anchor="middle">domini fill</text>
+<path class="ln" d="M600 132 L600 200"/>
+<path class="ln" d="M260 106 L500 106" stroke-dasharray="4 4"/>
+<text class="sm" x="380" y="98" text-anchor="middle">confiança transitiva</text>
+</svg><figcaption>Els dominis pare i fill tenen confiança automàtica. Entre arrels d'arbres del mateix bosc també.</figcaption></figure>
+
+<h3>Objectes i unitats organitzatives</h3>
+<p>Dins d'un domini hi ha <strong>objectes</strong>: usuaris, equips, grups, contactes, impressores i carpetes compartides. Per no tenir-los tots barrejats s'agrupen en <strong>unitats organitzatives (UO)</strong>, que funcionen com carpetes: serveixen per ordenar, per delegar l'administració i, sobretot, per aplicar directives de grup.</p>
+<div class="callout important"><p class="ctitle">Important</p><p>Un usuari <strong>no és membre</strong> d'una UO com ho és d'un grup: viu dins d'ella. Les UO serveixen per organitzar i aplicar polítiques; els <strong>grups</strong> serveixen per assignar permisos. No confongueu els dos conceptes.</p></div>
+<h3>Nomenclatura</h3>
+<p>Cada objecte té un nom distingit (<em>Distinguished Name</em>, DN) que descriu el camí fins a ell:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parts</th>
+<th>Significat</th>
+<th>Exemple</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>DC=</code></td>
+<td><em>Domain Component</em>: una part del nom DNS del domini</td>
+<td><code>DC=empresa,DC=local</code></td>
+</tr>
+<tr>
+<td><code>OU=</code></td>
+<td><em>Organizational Unit</em>: una UO</td>
+<td><code>OU=Comptabilitat</code></td>
+</tr>
+<tr>
+<td><code>CN=</code></td>
+<td><em>Common Name</em>: el nom de l'objecte</td>
+<td><code>CN=Anna Puig</code></td>
+</tr>
+</tbody>
+</table></div>
+<p>Un DN complet: <code>CN=Anna Puig,OU=Comptabilitat,OU=Usuaris,DC=empresa,DC=local</code>. Es llegeix de dreta a esquerra, de l'arrel cap a l'objecte.</p>
+<figure class="diagram"><svg viewBox="0 0 740 165" role="img" aria-label="Anatomia d'un nom distingit d'Active Directory"><defs><marker id="m5" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path class="ar2" d="M0 0L10 5L0 10z"/></marker></defs>
+<rect class="ac" x="20" y="46" width="150" height="40" rx="20"/><text class="on" x="95.0" y="71" text-anchor="middle">CN=Anna Puig</text>
+<text class="ic2" x="95.0" y="34" text-anchor="middle">👤</text>
+<text class="sm" x="95.0" y="106" text-anchor="middle">la persona</text>
+<rect class="box" x="178" y="46" width="160" height="40" rx="20"/><text class="" x="258.0" y="71" text-anchor="middle">OU=Comptabilitat</text>
+<text class="ic2" x="258.0" y="34" text-anchor="middle">🗂️</text>
+<text class="sm" x="258.0" y="106" text-anchor="middle">el departament</text>
+<rect class="box" x="346" y="46" width="130" height="40" rx="20"/><text class="" x="411.0" y="71" text-anchor="middle">OU=Usuaris</text>
+<text class="ic2" x="411.0" y="34" text-anchor="middle">📂</text>
+<text class="sm" x="411.0" y="106" text-anchor="middle">la carpeta</text>
+<rect class="hi" x="484" y="46" width="64" height="40" rx="20"/><text class="" x="516.0" y="71" text-anchor="middle">DC=ad</text>
+<text class="ic2" x="516.0" y="34" text-anchor="middle">🌐</text>
+<rect class="hi" x="556" y="46" width="86" height="40" rx="20"/><text class="" x="599.0" y="71" text-anchor="middle">DC=vidal</text>
+<rect class="hi" x="650" y="46" width="70" height="40" rx="20"/><text class="" x="685.0" y="71" text-anchor="middle">DC=cat</text>
+<text class="sm" x="602" y="106" text-anchor="middle">el domini ad.vidal.cat</text>
+<path class="ln2" d="M20 130 L720 130" marker-end="url(#m5)"/><text class="sm" x="370" y="152" text-anchor="middle">de l'objecte (esquerra) cap a l'arrel del domini (dreta)</text>
+</svg><figcaption>El DN és com una adreça postal: de la persona fins al país.</figcaption></figure>
+<div class="exercise" data-id="tema-1/bloc-2#1"><header><div class="ex-title"><span>Exercici:</span>Llegeix un DN</div><span class="lvl Bàsic">Bàsic</span><span class="time">10 min</span><label class="done"><input type="checkbox"> Fet</label></header><div class="ex-body"><p>Dibuixeu l'arbre d'UO que correspon al DN <code>CN=Marc Soler,OU=Logistica,OU=Departaments,DC=vidal,DC=cat</code> i digueu quin és el nom DNS del domini, el nom de l'usuari i l'UO on viu.</p></div><details><summary>Veure pistes</summary><ul>
+<li>Els <code>DC</code> de dreta a esquerra formen el nom del domini.</li>
+<li>Només l'<code>OU</code> immediata és on «viu» l'usuari.</li>
+</ul></details></div>
+</section><section class="sec" id="seccio-3"><h2>3. Estructura física: controladors, llocs i rols</h2><p>La part física és on s'executa el domini:</p>
+<ul>
+<li><strong>Controlador de domini (DC):</strong> servidor amb el rol <em>Active Directory Domain Services</em>. Guarda una còpia de la base de dades (<code>NTDS.dit</code>) i la carpeta <code>SYSVOL</code> (scripts i directives). Un domini hauria de tenir <strong>com a mínim dos</strong>.</li>
+<li><strong>Catàleg global:</strong> còpia parcial de tots els objectes del bosc; permet buscar entre dominis.</li>
+<li><strong>Llocs (<em>sites</em>):</strong> representen ubicacions físiques (Tarragona, Girona) i decideixen quan i com es repliquen els DC per no saturar els enllaços entre oficines.</li>
+<li><strong>DNS integrat:</strong> els DC solen ser també servidors DNS; la zona del domini es replica amb AD.</li>
+</ul>
+<p>Cinc rols especials (<strong>FSMO</strong>) es reparteixen en un sol DC cadascun: <em>Schema master</em>, <em>Domain naming master</em> (un per bosc), i <em>RID master</em>, <em>PDC emulator</em> i <em>Infrastructure master</em> (un per domini). Si un DC que en té algun es fa malbé, es poden <strong>assumir</strong> en un altre.</p>
+<div class="callout curiositat"><p class="ctitle">Ho sabíeu?</p><p>Cada ordinador d'un domini té una <strong>contrasenya secreta pròpia</strong> que ningú no escriu mai: l'equip i el domini la renoven sols cada 30 dies. És com si el PC tingués el seu propi carnet.</p></div>
+</section><section class="sec" id="seccio-4"><h2>4. Crear un domini</h2><h3>Abans de començar</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Requisit</th>
+<th>Per què</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IP estàtica</td>
+<td>Un DC no pot canviar d'adreça</td>
+</tr>
+<tr>
+<td>Nom d'equip definitiu</td>
+<td>Canviar el nom d'un DC després és complicat</td>
+</tr>
+<tr>
+<td>DNS del propi servidor</td>
+<td>El DC serà el DNS del domini. Poseu la seva pròpia IP com a DNS preferit</td>
+</tr>
+<tr>
+<td>Hora correcta</td>
+<td>Kerberos falla si els rellotges difereixen més de 5 minuts</td>
+</tr>
+<tr>
+<td>Contrasenya d'Administrador robusta</td>
+<td>L'assistent la demana</td>
+</tr>
+</tbody>
+</table></div>
+<p>Trieu el nom del domini amb cura. Microsoft recomana un <strong>subdomini d'un nom DNS que sigui vostre</strong>, per exemple <code>ad.vidal.cat</code>. Els noms acabats en <code>.local</code> funcionen però xoquen amb mDNS (Bonjour) i és millor no usar-los en producció; a les pràctiques us donaran un nom a l'aula.</p>
+<h3>Instal·lar el rol i promoure el servidor</h3>
+<p>Amb l'entorn gràfic: al <em>Gestor del servidor</em> → <strong>Afegir rols i característiques</strong> → seleccioneu <strong>Serveis de domini d'Active Directory</strong> → instal·leu → clic a la bandera de notificació → <strong>Promoure aquest servidor a controlador de domini</strong>. A l'assistent:</p>
+<ol>
+<li>Seleccioneu <strong>Afegeix un bosc nou</strong> i escriviu el nom de domini arrel.</li>
+<li>Nivell funcional del bosc i del domini: el més alt disponible a Windows Server 2022 és <em>Windows Server 2016</em>. Deixeu marcats <strong>Servidor DNS</strong> i <strong>Catàleg global</strong>.</li>
+<li>Contrasenya del mode de restauració (<strong>DSRM</strong>): guardeu-la. Serveix per reparar AD si el domini no arrenca.</li>
+<li>Avís de delegació DNS: és normal en un domini nou; se sol ignorar.</li>
+<li>Nom NetBIOS (el nom curt, per a <code>EMPRESA\usuari</code>): deixeu el proposat.</li>
+<li>Camins de la base de dades, el registre i <code>SYSVOL</code>: en producció s'acostumen a treure de <code>C:</code>. A les pràctiques es deixen per defecte.</li>
+<li>Revisió, comprovació de requisits i <strong>Instal·la</strong>. L'equip es reinicia sol.</li>
+</ol>
+<p>El mateix amb PowerShell, més ràpid i repetible:</p>
+<figure class="code"><figcaption><span class="lang">PowerShell</span><span class="title">Crear un bosc nou</span><button class="copy" type="button">Copia</button></figcaption><div class="hl"><pre><code><span class="nb">Install-WindowsFeature</span> <span class="n">AD-Domain-Services</span> <span class="n">-IncludeManagementTools</span>
+
+<span class="nb">Install-ADDSForest</span> <span class="p">`</span>
+  <span class="n">-DomainName</span> <span class="s2">&quot;ad.vidal.cat&quot;</span> <span class="p">`</span>
+  <span class="n">-DomainNetbiosName</span> <span class="s2">&quot;VIDAL&quot;</span> <span class="p">`</span>
+  <span class="n">-InstallDns</span> <span class="p">`</span>
+  <span class="n">-SafeModeAdministratorPassword</span> <span class="p">(</span><span class="nb">Read-Host</span> <span class="n">-AsSecureString</span> <span class="s2">&quot;Contrasenya DSRM&quot;</span><span class="p">)</span> <span class="p">`</span>
+  <span class="n">-Force</span>
+</code></pre></div></figure>
+<div class="callout canvi"><p class="ctitle">Què ha canviat respecte dels apunts antics</p><p>El vostre material explica <code>dcpromo</code> i l'assistent de Windows 2003. L'ordre <code>dcpromo</code> ja no funciona per crear dominis des de Windows Server 2012: el rol s'instal·la i després es «promou» amb el Gestor del servidor o amb les ordres <code>Install-ADDS...</code> de PowerShell.</p></div>
+<h3>Comprovar que funciona</h3>
+<figure class="code"><figcaption><span class="lang">PowerShell</span><span class="title">Verificacions del controlador de domini</span><button class="copy" type="button">Copia</button></figcaption><div class="hl"><pre><code><span class="nb">Get-ADDomain</span>                          <span class="c"># dades del domini</span>
+<span class="nb">Get-ADDomainController</span>                <span class="c"># dades d&#39;aquest DC</span>
+<span class="nb">Get-Service</span> <span class="n">NTDS</span><span class="p">,</span> <span class="n">DNS</span><span class="p">,</span> <span class="n">Netlogon</span>       <span class="c"># han d&#39;estar en execució</span>
+<span class="n">dcdiag</span> <span class="p">/</span><span class="n">q</span>                             <span class="c"># diagnòstic; sense sortida = tot correcte</span>
+<span class="n">nslookup</span> <span class="n">-type</span><span class="p">=</span><span class="n">SRV</span> <span class="n">_ldap</span><span class="p">.</span><span class="n">_tcp</span><span class="p">.</span><span class="n">dc</span><span class="p">.</span><span class="n">_msdcs</span><span class="p">.</span><span class="n">ad</span><span class="p">.</span><span class="n">vidal</span><span class="p">.</span><span class="nb">cat</span>
+</code></pre></div></figure>
+<p>Els registres SRV (<code>_ldap._tcp...</code>) són els que fan servir els clients per trobar el DC. Si no existeixen, gairebé sempre és un problema de DNS.</p>
+<div class="exercise" data-id="tema-1/bloc-2#1"><header><div class="ex-title"><span>Exercici:</span>Crea el vostre domini</div><span class="lvl Intermedi">Intermedi</span><span class="time">60 min</span><label class="done"><input type="checkbox"> Fet</label></header><div class="ex-body"><p>Amb el Windows Server 2022 del bloc anterior, instal·leu AD DS i creeu un bosc nou amb el nom que us indiqui el professor. Contrasenya DSRM diferent de l'Administrador. Un cop reiniciat, inicieu sessió com a <code>NETBIOS\Administrator</code> i lliureu captures de <code>Get-ADDomain</code>, <code>dcdiag</code> i el registre SRV.</p></div><details><summary>Veure pistes</summary><ul>
+<li>La IP del DNS preferit del servidor ha de ser la del propi servidor.</li>
+<li>Si <code>dcdiag</code> falla, mireu primer DNS i després l'hora.</li>
+<li>Feu una instantània abans de promoure el servidor.</li>
+</ul></details></div>
+</section><section class="sec" id="seccio-5"><h2>5. Afegir un client al domini</h2><p>Només es poden unir a un domini les edicions <strong>Pro, Enterprise o Education</strong> de Windows 10 i 11. La <em>Home</em> no pot.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Comprovació al client</th>
+<th>Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mateix rang d'IP i màscara que el DC</td>
+<td>Sí</td>
+</tr>
+<tr>
+<td>DNS preferit</td>
+<td><strong>La IP del DC</strong> (no la del router)</td>
+</tr>
+<tr>
+<td>Nom d'equip</td>
+<td>Únic dins del domini</td>
+</tr>
+<tr>
+<td>Es resol el nom del domini</td>
+<td><code>nslookup ad.vidal.cat</code> retorna la IP del DC</td>
+</tr>
+</tbody>
+</table></div>
+<p>Amb l'entorn gràfic: <code>sysdm.cpl</code> → <strong>Canvia...</strong> → <em>Domini</em> → nom del domini → credencials d'un usuari del domini (l'Administrador). Amb PowerShell:</p>
+<figure class="code"><figcaption><span class="lang">PowerShell</span><span class="title">Unir el client al domini</span><button class="copy" type="button">Copia</button></figcaption><div class="hl"><pre><code><span class="nb">Add-Computer</span> <span class="n">-DomainName</span> <span class="s2">&quot;ad.vidal.cat&quot;</span> <span class="n">-Credential</span> <span class="s2">&quot;VIDAL\Administrator&quot;</span> <span class="n">-Restart</span>
+</code></pre></div></figure>
+<p>Després del reinici, al final de la pantalla d'inici de sessió trieu <em>Altre usuari</em> i escriviu <code>VIDAL\usuari</code>. Al servidor, l'equip apareix al contenidor <strong>Computers</strong> d'<em>Usuaris i equips d'Active Directory</em> (<code>dsa.msc</code>).</p>
+<figure class="code"><figcaption><span class="lang">PowerShell</span><span class="title">Comprovar-ho al client</span><button class="copy" type="button">Copia</button></figcaption><div class="hl"><pre><code><span class="n">whoami</span>                              <span class="c"># vidal\usuari</span>
+<span class="n">nltest</span> <span class="p">/</span><span class="n">dsgetdc</span><span class="p">:</span><span class="n">ad</span><span class="p">.</span><span class="n">vidal</span><span class="p">.</span><span class="nb">cat </span>       <span class="c"># quin DC ens atén</span>
+<span class="nb">Test-ComputerSecureChannel</span>          <span class="c"># el canal segur amb el domini és correcte</span>
+</code></pre></div></figure>
+<div class="callout compte"><p class="ctitle">Compte</p><p>Errors típics en unir un equip: «no es pot contactar amb el controlador de domini» (DNS mal configurat al client), «el nom d'usuari o la contrasenya no són correctes» (heu oblidat el prefix del domini) i «el rellotge està desincronitzat» (diferència de més de 5 minuts).</p></div>
+
+<div class="exercise" data-id="tema-1/bloc-2#1"><header><div class="ex-title"><span>Exercici:</span>Fes client del domini el teu Windows 10/11</div><span class="lvl Bàsic">Bàsic</span><span class="time">40 min</span><label class="done"><input type="checkbox"> Fet</label></header><div class="ex-body"><p>Connecteu una màquina virtual Windows 10 o 11 Pro a la mateixa xarxa interna que el servidor. Configureu-li DNS i IP, uniu-la al domini i inicieu sessió amb un usuari del domini. Documenteu-ho amb captures de la configuració de xarxa, de l'equip al <code>dsa.msc</code> i de <code>whoami</code>.</p></div><details><summary>Veure pistes</summary><ul>
+<li>Si les màquines no es veuen, comproveu que les dues targetes estan a la mateixa xarxa interna de VirtualBox.</li>
+<li>Recordeu que el tallafocs del servidor bloqueja el <code>ping</code> per defecte.</li>
+</ul></details></div>
+</section><section class="sec" id="seccio-6"><h2>6. Segon controlador, despromoció i relacions de confiança</h2><h3>Afegir un segon controlador de domini</h3>
+<p>Amb un únic DC, si cau, ningú pot iniciar sessió. Per això s'afegeix un segon DC que rep tot el directori per replicació.</p>
+<figure class="code"><figcaption><span class="lang">PowerShell</span><span class="title">Segon DC (al servidor que ja és membre del domini)</span><button class="copy" type="button">Copia</button></figcaption><div class="hl"><pre><code><span class="nb">Install-WindowsFeature</span> <span class="n">AD-Domain-Services</span> <span class="n">-IncludeManagementTools</span>
+<span class="nb">Install-ADDSDomainController</span> <span class="n">-DomainName</span> <span class="s2">&quot;ad.vidal.cat&quot;</span> <span class="n">-InstallDns</span> <span class="p">`</span>
+  <span class="n">-Credential</span> <span class="p">(</span><span class="nb">Get-Credential</span><span class="p">)</span> <span class="p">`</span>
+  <span class="n">-SafeModeAdministratorPassword</span> <span class="p">(</span><span class="nb">Read-Host</span> <span class="n">-AsSecureString</span> <span class="s2">&quot;DSRM&quot;</span><span class="p">)</span>
+</code></pre></div></figure>
+<p>Després, poseu al client <strong>els dos servidors com a DNS</strong> (el primer i el segon). Comproveu la replicació amb <code>repadmin /replsummary</code>.</p>
+<h3>Desinstal·lar un domini</h3>
+<p>Treure AD s'anomena <strong>despromocionar</strong> un DC. Ja no es fa amb <code>dcpromo</code>:</p>
+<figure class="code"><figcaption><span class="lang">PowerShell</span><span class="title">Despromocionar un DC</span><button class="copy" type="button">Copia</button></figcaption><div class="hl"><pre><code><span class="nb">Uninstall-ADDSDomainController</span> <span class="n">-DemoteOperationMasterRole</span> <span class="n">-RemoveApplicationPartitions</span>
+<span class="c"># Si és l&#39;ÚLTIM controlador del domini (destrueix el domini):</span>
+<span class="nb">Uninstall-ADDSDomainController</span> <span class="n">-LastDomainControllerInDomain</span> <span class="n">-RemoveApplicationPartitions</span>
+</code></pre></div></figure>
+<div class="callout compte"><p class="ctitle">Compte</p><p>Si despromoueu l'<strong>últim</strong> DC, el domini deixa d'existir: els equips ja no podran iniciar sessió, s'eliminen tots els comptes d'usuari i les claus de xifratge. Si hi ha dades xifrades amb EFS, cal desxifrar-les abans o quedaran inaccessibles per sempre.</p></div>
+<h3>Relacions de confiança</h3>
+<p>Una <strong>relació de confiança</strong> permet que els usuaris d'un domini siguin reconeguts en un altre. Tres idees la descriuen:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Concepte</th>
+<th>Vol dir</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Direcció</strong></td>
+<td>Si A confia en B, els usuaris de B poden accedir a recursos d'A. La confiança va en un sentit (unidireccional) o en tots dos (bidireccional).</td>
+</tr>
+<tr>
+<td><strong>Transitivitat</strong></td>
+<td>Si A confia en B i B en C, A confia en C? Depèn del tipus.</td>
+</tr>
+<tr>
+<td><strong>Tipus</strong></td>
+<td>Pare-fill (automàtica), arrel d'arbre (automàtica), drecera, extern, de bosc</td>
+</tr>
+</tbody>
+</table></div>
+<figure class="diagram"><svg viewBox="0 0 760 210" role="img" aria-label="Relació de confiança unidireccional: A confia en B i els usuaris de B poden accedir als recursos d'A"><defs><marker id="m6" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path class="ar2" d="M0 0L10 5L0 10z"/></marker></defs>
+<rect class="hi" x="20" y="50" width="240" height="140" rx="14"/><text class="ic" x="140" y="96" text-anchor="middle">🏢</text><text class="b" x="140" y="128" text-anchor="middle">Domini A</text><text class="sm" x="140" y="150" text-anchor="middle">📁 recursos: carpetes, impressores</text>
+<rect class="nw" x="500" y="50" width="240" height="140" rx="14"/><text class="ic" x="620" y="96" text-anchor="middle">🏫</text><text class="b" x="620" y="128" text-anchor="middle">Domini B</text><text class="sm" x="620" y="150" text-anchor="middle">👤 usuaris del departament</text>
+<path class="ln2 dash" d="M262 80 L498 80" marker-end="url(#m6)"/><text class="b" x="380" y="70" text-anchor="middle">A confia en B</text>
+<path class="ln2" d="M498 150 L262 150" marker-end="url(#m6)"/><text class="b" x="380" y="172" text-anchor="middle">accés dels usuaris de B</text>
+</svg><figcaption>Truc per no liar-se: la fletxa de confiança i la d'accés van en sentits contraris.</figcaption></figure>
+<div class="callout informacio"><p class="ctitle">Informació</p><p>En un <strong>sentit únic d'entrada</strong> (<em>incoming</em>) el vostre domini és el «confiat»: els vostres usuaris poden accedir a recursos d'un altre domini. En una <strong>de sortida</strong> (<em>outgoing</em>) el vostre domini és el que «confia»: els usuaris de l'altre poden accedir als vostres recursos. Doneu-li voltes al cap amb un exemple abans d'assajar-ho.</p></div>
+<p>Perquè dos dominis independents es puguin veure, cada DNS ha de saber resoldre l'altre domini (un <strong>reenviador condicional</strong>), i els dos servidors han de tenir l'hora sincronitzada.</p>
+<figure class="code"><figcaption><span class="lang">PowerShell</span><span class="title">Confiança bidireccional entre dos dominis</span><button class="copy" type="button">Copia</button></figcaption><div class="hl"><pre><code><span class="c"># Al DNS d&#39;un domini: reenviament cap al DNS de l&#39;altre</span>
+<span class="nb">Add-DnsServerConditionalForwarderZone</span> <span class="n">-Name</span> <span class="s2">&quot;altra.local&quot;</span> <span class="n">-MasterServers</span> <span class="n">192</span><span class="p">.</span><span class="n">168</span><span class="p">.</span><span class="n">10</span><span class="p">.</span><span class="n">20</span>
+
+<span class="c"># Crear la confiança bidireccional (demana credencials dels dos dominis)</span>
+<span class="n">netdom</span> <span class="n">trust</span> <span class="n">ad</span><span class="p">.</span><span class="n">vidal</span><span class="p">.</span><span class="nb">cat </span><span class="p">/</span><span class="n">domain</span><span class="p">:</span><span class="n">altra</span><span class="p">.</span><span class="n">local</span> <span class="p">/</span><span class="n">add</span> <span class="p">/</span><span class="n">twoway</span> <span class="p">`</span>
+   <span class="p">/</span><span class="n">UserO</span><span class="p">:</span><span class="n">VIDAL</span><span class="p">\</span><span class="n">Administrator</span> <span class="p">/</span><span class="n">PasswordO</span><span class="p">:*</span> <span class="p">/</span><span class="n">UserD</span><span class="p">:</span><span class="n">ALTRA</span><span class="p">\</span><span class="n">Administrator</span> <span class="p">/</span><span class="n">PasswordD</span><span class="p">:*</span>
+
+<span class="c"># Verificar</span>
+<span class="n">netdom</span> <span class="n">trust</span> <span class="n">ad</span><span class="p">.</span><span class="n">vidal</span><span class="p">.</span><span class="nb">cat </span><span class="p">/</span><span class="n">domain</span><span class="p">:</span><span class="n">altra</span><span class="p">.</span><span class="n">local</span> <span class="p">/</span><span class="n">verify</span>
+</code></pre></div></figure>
+<p>També es pot fer amb l'eina gràfica <em>Dominis i confiances d'Active Directory</em> (<code>domain.msc</code>), que és el que fareu a la pràctica.</p>
+<div class="exercise" data-id="tema-1/bloc-2#1"><header><div class="ex-title"><span>Exercici:</span>Segon controlador i tolerància a errors</div><span class="lvl Avançat">Avançat</span><span class="time">60 min</span><label class="done"><input type="checkbox"> Fet</label></header><div class="ex-body"><p>Afegiu un segon DC al vostre domini. Amb el client unit, apagueu el primer DC i proveu d'iniciar sessió. Expliqueu què passa amb i sense el segon DC encès, i per què.</p></div><details><summary>Veure pistes</summary><ul>
+<li>Windows guarda una còpia de les credencials del darrer inici de sessió (credencials en memòria cau).</li>
+<li>Amb el segon DC encès i el DNS ben configurat, l'inici de sessió és normal.</li>
+<li>Sense cap DC, només es pot entrar amb credencials en memòria cau i no es pot accedir a recursos del domini.</li>
+</ul></details></div>
+
+<div class="exercise" data-id="tema-1/bloc-2#2"><header><div class="ex-title"><span>Exercici:</span>Relacions de confiança amb un company</div><span class="lvl Avançat">Avançat</span><span class="time">60 min</span><label class="done"><input type="checkbox"> Fet</label></header><div class="ex-body"><p>Amb el domini d'un company creeu una relació de confiança bidireccional. Modifiqueu-la després a unidireccional d'entrada. Finalment, elimineu-la. Documenteu cada pas amb captures i digueu, a cada cas, quins usuaris poden accedir a quins recursos.</p></div><details><summary>Veure pistes</summary><ul>
+<li>Prepareu primer els reenviadors DNS entre els dos dominis.</li>
+<li>Proveu la confiança amb el botó <em>Valida</em> de <code>domain.msc</code>.</li>
+</ul></details></div>
+</section><p class="ex-progress"></p><div class="pager"><a class="prev" rel="prev" href="../../tema-1/bloc-1/"><small>← Anterior</small>1.1 Instal·lació de Windows Server</a><a class="next" rel="next" href="../../tema-1/bloc-3/"><small>Següent →</small>1.3 Usuaris, grups, perfils i directives de grup</a></div></div></div>
+<footer class="site-footer">Departament d'Informàtica · Institut F. Vidal i Barraquer · Tarragona · Curs 2025-2026. Basat en el curs de Moodle del mòdul MP0224 i la programació del departament.</footer>
+</main>
+</div>
+<div class="status" role="status">
+  <span id="statusText">Curs SOX</span><span class="grow"></span>
+  <span class="hint">Tecles ← →</span>
+  <button id="goPrev" type="button" aria-label="Bloc anterior">←</button><button id="goNext" type="button" aria-label="Bloc següent">→</button><button id="goTop" type="button" aria-label="Torna a dalt">↑</button>
+</div>
+<script src="../../assets/search-index.js"></script><script src="../../assets/app.js"></script>
+</body>
+</html>

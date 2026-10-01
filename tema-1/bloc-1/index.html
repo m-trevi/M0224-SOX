@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bloc 1.1: Instal·lació de Windows Server | Sistemes operatius en xarxa</title>
+<meta name="description" content="Materials del mòdul MP0224 - Sistemes operatius en xarxa (CFGM Sistemes microinformàtics i xarxes)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%96%A5%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/style.css">
+
+</head>
+<body data-mode="multi" data-root="../../">
+<a class="skip" href="#main-content">Salta al contingut principal</a>
+<header class="site-header">
+  <button id="navToggle" class="btn" aria-expanded="false" aria-controls="sidebar">☰ <span class="lbl">Navegació</span></button>
+  <a class="brand" href="../../"><span class="code">MP0224</span><span class="name">Sistemes operatius en xarxa</span></a>
+  <div class="header-actions"><button id="themeToggle" class="btn" aria-pressed="false">◐ <span class="lbl">Mode fosc</span></button></div>
+</header>
+<div class="layout">
+<aside class="sidebar" id="sidebar" aria-label="Navegació del curs">
+<div class="search-wrap"><input id="search" class="search" type="search" placeholder="Cerca al curs…" aria-label="Cerca al curs" autocomplete="off"><ul id="searchResults" class="search-results"></ul></div>
+<div class="nav-extra" style="border:0;margin-top:10px;padding-top:0"><a data-page="index" href="../../">Índex del curs</a><a data-page="avaluacio" href="../../avaluacio/">Avaluació i qualificació</a></div>
+<div class="nav-unit" style="--u:#7a4fd1"><a data-page="tema-1" href="../../tema-1/"><span class="dot"></span><span>Tema 1. Sistemes operatius propietaris en xarxa</span></a><ul>
+<li class="is-current"><a data-page="tema-1/bloc-1" href="../../tema-1/bloc-1/" aria-current="page">1.1 Instal·lació de Windows Server</a><ul class="nav-toc">
+<li><a data-sec="seccio-1" href="../../tema-1/bloc-1/#seccio-1">1. Sistemes operatius en xarxa</a></li>
+<li><a data-sec="seccio-2" href="../../tema-1/bloc-1/#seccio-2">2. Windows Server: versions i edicions</a></li>
+<li><a data-sec="seccio-3" href="../../tema-1/bloc-1/#seccio-3">3. Particions, sistemes d&#x27;arxius i arrencada</a></li>
+<li><a data-sec="seccio-4" href="../../tema-1/bloc-1/#seccio-4">4. Preparar la instal·lació</a></li>
+<li><a data-sec="seccio-5" href="../../tema-1/bloc-1/#seccio-5">5. Instal·lació pas a pas amb VirtualBox</a></li>
+<li><a data-sec="seccio-6" href="../../tema-1/bloc-1/#seccio-6">6. Configuració inicial, connectivitat i documentació</a></li>
+</ul></li>
+<li class=""><a data-page="tema-1/bloc-2" href="../../tema-1/bloc-2/">1.2 Dominis i Active Directory</a><ul class="nav-toc">
+<li><a data-sec="seccio-1" href="../../tema-1/bloc-2/#seccio-1">1. Del grup de treball al domini</a></li>
+<li><a data-sec="seccio-2" href="../../tema-1/bloc-2/#seccio-2">2. Estructura lògica: domini, arbre, bosc i UO</a></li>
+<li><a data-sec="seccio-3" href="../../tema-1/bloc-2/#seccio-3">3. Estructura física: controladors, llocs i rols</a></li>
+<li><a data-sec="seccio-4" href="../../tema-1/bloc-2/#seccio-4">4. Crear un domini</a></li>
+<li><a data-sec="seccio-5" href="../../tema-1/bloc-2/#seccio-5">5. Afegir un client al domini</a></li>
+<li><a data-sec="seccio-6" href="../../tema-1/bloc-2/#seccio-6">6. Segon controlador, despromoció i relacions de confiança</a></li>
+</ul></li>
+<li class=""><a data-page="tema-1/bloc-3" href="../../tema-1/bloc-3/">1.3 Usuaris, grups, perfils i directives de grup</a><ul class="nav-toc">
+<li><a data-sec="seccio-1" href="../../tema-1/bloc-3/#seccio-1">1. Comptes i identitats predeterminades</a></li>
+<li><a data-sec="seccio-2" href="../../tema-1/bloc-3/#seccio-2">2. Unitats organitzatives, usuaris i plantilles</a></li>
+<li><a data-sec="seccio-3" href="../../tema-1/bloc-3/#seccio-3">3. Grups</a></li>
+<li><a data-sec="seccio-4" href="../../tema-1/bloc-3/#seccio-4">4. Perfils d&#x27;usuari</a></li>
+<li><a data-sec="seccio-5" href="../../tema-1/bloc-3/#seccio-5">5. Directives de grup (GPO)</a></li>
+</ul></li>
+</ul></div>
+<div class="nav-unit soon" style="--u:#b04fc0"><span class="uname"><span class="dot"></span><span>Tema 2. Sistemes operatius lliures en xarxa <em>(aviat)</em></span></span><ul><li><span class="soon-item">2.1 Instal·lació i explotació d&#x27;Ubuntu Server</span></li><li><span class="soon-item">2.2 Usuaris, grups i permisos a Linux</span></li><li><span class="soon-item">2.3 Monitoratge, serveis i tasques automàtiques</span></li><li><span class="soon-item">2.4 Serveis de directori amb OpenLDAP</span></li><li><span class="soon-item">2.5 Autenticació d&#x27;usuaris: NSS, PAM i SSSD</span></li></ul></div>
+<div class="nav-unit soon" style="--u:#5a5fd4"><span class="uname"><span class="dot"></span><span>Tema 3. Compartició de recursos i seguretat <em>(aviat)</em></span></span><ul><li><span class="soon-item">3.1 Carpetes compartides i permisos a Windows Server</span></li><li><span class="soon-item">3.2 Impressores, còpies i auditoria a Windows Server</span></li><li><span class="soon-item">3.3 Compartir recursos a Linux: NFS, CUPS i còpies</span></li></ul></div>
+<div class="nav-unit soon" style="--u:#c0489f"><span class="uname"><span class="dot"></span><span>Tema 4. Integració de sistemes operatius lliures i propietaris <em>(aviat)</em></span></span><ul><li><span class="soon-item">4.1 Xarxes mixtes: Linux i Windows en un domini</span></li><li><span class="soon-item">4.2 Samba: fitxers i impressores entre Linux i Windows</span></li><li><span class="soon-item">4.3 Zentyal: un servidor de xarxa integrat</span></li></ul></div>
+<div class="nav-extra"><span style="font-size:.82rem;color:var(--muted)">Departament d'Informàtica<br>Institut F. Vidal i Barraquer · Tarragona<br>Curs 2025-2026 · v1.0</span></div>
+</aside>
+<main id="main-content">
+<div class="page" data-page="tema-1/bloc-1" data-title="Bloc 1.1: Instal·lació de Windows Server | Sistemes operatius en xarxa" data-unit="1" data-bloc="1" data-nunits="4" data-nblocs="3"><div class="content"><nav class="crumbs" aria-label="Ruta"><a data-page="index" href="../../">Inici</a> &gt; <a data-page="tema-1" href="../../tema-1/">Tema 1: Sistemes operatius propietaris en xarxa</a> &gt; Bloc 1.1: Instal·lació de Windows Server</nav><header class="block-head" style="--u:#7a4fd1"><h1>Bloc 1.1: Instal·lació de Windows Server</h1><p class="lead">SO en xarxa, edicions, particions, sistemes d&#x27;arxius, instal·lació a VirtualBox, configuració inicial i automatització.</p><div class="chips"><span class="chip unit">Tema 1</span><span class="chip">RA1 RA5</span><span class="chip">10 h</span></div></header><details class="ra-panel"><summary>Resultats d'aprenentatge i criteris d'avaluació d'aquest bloc</summary><div class="inner"><h4>RA1. Instal·la sistemes operatius en xarxa descrivint-ne les característiques i interpretant-ne la documentació tècnica.</h4><ul><li><span class="num">1.1</span>Realitza l&#x27;estudi de compatibilitat del sistema informàtic.</li><li><span class="num">1.2</span>Diferencia els modes d&#x27;instal·lació.</li><li><span class="num">1.3</span>Planifica i realitza el particionat del disc del servidor.</li><li><span class="num">1.4</span>Selecciona i aplica els sistemes d&#x27;arxius.</li><li><span class="num">1.5</span>Selecciona els components a instal·lar.</li><li><span class="num">1.6</span>Aplica procediments per l&#x27;automatització d&#x27;instal·lacions.</li><li><span class="num">1.7</span>Aplica preferències en la configuració de l&#x27;entorn personal.</li><li><span class="num">1.8</span>Actualitza el sistema operatiu en xarxa.</li><li><span class="num">1.9</span>Comprova la connectivitat del servidor amb els equips client.</li></ul><h4>RA5. Realitza tasques de monitoratge i ús del sistema operatiu en xarxa, descrivint les eines utilitzades i identificant les principals incidències.</h4><ul><li><span class="num">5.4</span>Realitza tasques de manteniment del programari instal·lat en el sistema.</li><li><span class="num">5.6</span>Interpreta la informació de configuració del sistema operatiu en xarxa.</li></ul></div></details><div class="intro"><p>En aquest bloc feu el pas de «ordinador d'usuari» a «servidor». Aprendreu què és realment un sistema operatiu en xarxa, quines versions de Windows Server existeixen, com es prepara un disc, i instal·lareu i configurareu un Windows Server 2022 en una màquina virtual. És la base de totes les pràctiques del tema: el servidor que munteu ara serà després el controlador del vostre domini.</p>
+<div class="callout informacio"><p class="ctitle">Informació</p><p><strong>Què necessiteu per treballar</strong></p>
+<ul>
+<li>VirtualBox instal·lat a l'ordinador de l'aula (o al vostre).</li>
+<li>La imatge ISO de Windows Server 2022 (la facilita el professor des del repositori del centre; també existeix una edició d'avaluació de 180 dies a Microsoft Evaluation Center).</li>
+<li>Uns 50 GB lliures de disc i 4 GB de RAM per a la màquina virtual.</li>
+</ul></div></div><nav class="toc-inline" aria-label="Contingut del bloc"><h2>Contingut del bloc</h2><ol><li><a href="../../tema-1/bloc-1/#seccio-1">Sistemes operatius en xarxa</a></li><li><a href="../../tema-1/bloc-1/#seccio-2">Windows Server: versions i edicions</a></li><li><a href="../../tema-1/bloc-1/#seccio-3">Particions, sistemes d&#x27;arxius i arrencada</a></li><li><a href="../../tema-1/bloc-1/#seccio-4">Preparar la instal·lació</a></li><li><a href="../../tema-1/bloc-1/#seccio-5">Instal·lació pas a pas amb VirtualBox</a></li><li><a href="../../tema-1/bloc-1/#seccio-6">Configuració inicial, connectivitat i documentació</a></li></ol></nav><section class="sec" id="seccio-1"><h2>1. Sistemes operatius en xarxa</h2><p>Un ordinador aïllat només necessita un sistema operatiu que administri el seu maquinari. Quan hi ha més equips, cal alguna cosa més: algú que centralitzi usuaris, dades, impressores i seguretat.</p>
+<div class="callout definicio"><p class="ctitle">Definició</p><p><strong>Sistema operatiu en xarxa:</strong> sistema operatiu que, a més de gestionar el maquinari local, ofereix serveis a altres equips de la xarxa (fitxers, impressió, autenticació, noms, web...) i controla qui hi pot accedir.</p></div>
+<h3>Client/servidor o entre iguals</h3>
+<figure class="diagram"><svg viewBox="0 0 760 290" role="img" aria-label="Grup de treball amb quatre ordinadors connectats entre ells i domini amb un servidor central"><defs><marker id="m1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path class="ar2" d="M0 0L10 5L0 10z"/></marker></defs>
+<rect class="box" x="10" y="10" width="360" height="270" rx="14"/><rect class="hi" x="390" y="10" width="360" height="270" rx="14"/>
+<text class="b big" x="190" y="40" text-anchor="middle">Grup de treball</text><text class="b big" x="570" y="40" text-anchor="middle">Domini</text>
+<path class="ln" d="M80 100 L300 100 M80 190 L300 190 M80 100 L80 190 M300 100 L300 190 M80 100 L300 190 M300 100 L80 190"/>
+<circle class="box" cx="80" cy="100" r="26"/><text class="ic" x="80" y="110" text-anchor="middle">💻</text><circle class="box" cx="300" cy="100" r="26"/><text class="ic" x="300" y="110" text-anchor="middle">💻</text><circle class="box" cx="80" cy="190" r="26"/><text class="ic" x="80" y="200" text-anchor="middle">💻</text><circle class="box" cx="300" cy="190" r="26"/><text class="ic" x="300" y="200" text-anchor="middle">💻</text>
+<path class="ln" d="M570 145 L440 100 M570 145 L700 100 M570 145 L440 190 M570 145 L700 190"/>
+<circle class="box" cx="440" cy="100" r="24"/><text class="ic" x="440" y="110" text-anchor="middle">💻</text><circle class="box" cx="700" cy="100" r="24"/><text class="ic" x="700" y="110" text-anchor="middle">💻</text><circle class="box" cx="440" cy="190" r="24"/><text class="ic" x="440" y="200" text-anchor="middle">💻</text><circle class="box" cx="700" cy="190" r="24"/><text class="ic" x="700" y="200" text-anchor="middle">💻</text><circle class="ac" cx="570" cy="145" r="34"/><text class="ic" x="570" y="155" text-anchor="middle">🖥️</text>
+<text class="b" x="190" y="246" text-anchor="middle">😵 4 llistes d'usuaris diferents</text><text class="sm" x="190" y="266" text-anchor="middle">Cada canvi s'ha de fer a mà, equip per equip</text>
+<text class="b" x="570" y="246" text-anchor="middle">😌 Una sola llista d'usuaris</text><text class="sm" x="570" y="266" text-anchor="middle">Un canvi al servidor i val per a tothom</text>
+</svg><figcaption>A l'esquerra, tot és un embolic. A la dreta, un servidor ho centralitza.</figcaption></figure>
+
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Com funciona</th>
+<th>Avantatges</th>
+<th>Inconvenients</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Entre iguals (grup de treball)</td>
+<td>Cada equip guarda els seus propis usuaris i comparteix el que vol.</td>
+<td>No cal servidor. Barat.</td>
+<td>Els usuaris estan repetits a cada equip. Difícil de mantenir i de protegir.</td>
+</tr>
+<tr>
+<td>Client/servidor (domini)</td>
+<td>Un o més servidors concentren usuaris, permisos i recursos. Els clients s'hi validen.</td>
+<td>Administració centralitzada. Seguretat coherent. Còpies de seguretat en un sol lloc.</td>
+<td>Cal servidor, llicències i manteniment. Si el servidor cau, el servei cau.</td>
+</tr>
+</tbody>
+</table></div>
+<p>Al mòdul treballeu el model client/servidor. Quan un equip no forma part de cap domini, diem que és membre d'un <em>grup de treball</em> (a Windows, <code>WORKGROUP</code> per defecte).</p>
+<h3>Classificació dels sistemes operatius</h3>
+<p>Els apunts clàssics classifiquen els sistemes operatius amb diversos criteris. Els que us han de sonar són:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Criteri</th>
+<th>Categories</th>
+<th>Exemples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Nombre d'usuaris simultanis</td>
+<td>Monousuari, multiusuari</td>
+<td>MS-DOS (mono); Windows Server, Linux (multi)</td>
+</tr>
+<tr>
+<td>Nombre de tasques</td>
+<td>Monotasca, multitasca</td>
+<td>MS-DOS (mono); tots els actuals (multi)</td>
+</tr>
+<tr>
+<td>Nombre de processadors</td>
+<td>Monoprocés, multiprocés</td>
+<td>Qualsevol sistema modern és multiprocés</td>
+</tr>
+<tr>
+<td>Ús de recursos</td>
+<td>Centralitzat, en xarxa, distribuït</td>
+<td>Windows Server i Linux (en xarxa)</td>
+</tr>
+<tr>
+<td>Arquitectura</td>
+<td>32 bits, 64 bits</td>
+<td>Windows Server 2022 només existeix en 64 bits</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Per a què serveix un servidor</h3>
+<p>Un servidor no és una màquina especial: és un ordinador que executa <strong>rols</strong> (serveis que ofereix a la xarxa). Un mateix servidor pot combinar-ne diversos, tot i que en entorns reals es prefereix separar-los.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Rol</th>
+<th>Què fa</th>
+<th>Exemple</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Servidor de fitxers</td>
+<td>Emmagatzema i comparteix carpetes</td>
+<td><code>\\servidor\comptabilitat</code></td>
+</tr>
+<tr>
+<td>Servidor d'impressió</td>
+<td>Centralitza les cues d'impressió</td>
+<td>Impressora de planta</td>
+</tr>
+<tr>
+<td>Controlador de domini</td>
+<td>Autentica usuaris i equips (Active Directory)</td>
+<td><code>empresa.local</code></td>
+</tr>
+<tr>
+<td>DNS</td>
+<td>Tradueix noms a adreces IP</td>
+<td><code>servidor.empresa.local</code></td>
+</tr>
+<tr>
+<td>DHCP</td>
+<td>Assigna adreces IP automàticament</td>
+<td>Rang <code>192.168.10.100-200</code></td>
+</tr>
+<tr>
+<td>Servidor web</td>
+<td>Serveix pàgines i aplicacions</td>
+<td>IIS, Apache</td>
+</tr>
+<tr>
+<td>Base de dades</td>
+<td>Executa un SGBD</td>
+<td>SQL Server, MariaDB</td>
+</tr>
+<tr>
+<td>Escriptori remot</td>
+<td>Permet treballar en una sessió remota</td>
+<td>RDP</td>
+</tr>
+</tbody>
+</table></div>
+<div class="callout curiositat"><p class="ctitle">Ho sabíeu?</p><p>Un servidor no necessita pantalla, ratolí ni teclat. A un centre de dades la majoria de màquines no han vist mai cap d'aquests tres. Per això existeix <strong>Server Core</strong>: Windows sense escriptori, només ordres.</p></div>
+
+<div class="exercise" data-id="tema-1/bloc-1#1"><header><div class="ex-title"><span>Exercici:</span>Classifica els sistemes operatius</div><span class="lvl Bàsic">Bàsic</span><span class="time">20 min</span><label class="done"><input type="checkbox"> Fet</label></header><div class="ex-body"><p>Busqueu informació de com a mínim vuit sistemes operatius (Windows, Linux, macOS, Android...) i completeu una taula amb: nom, empresa o comunitat, tipus (client o servidor), nombre d'usuaris i de tasques, i si és lliure o propietari.</p></div><details><summary>Veure pistes</summary><ul>
+<li>Feu servir els criteris de la taula de classificació d'aquest bloc.</li>
+<li>Un mateix producte pot tenir versió client i versió servidor: indiqueu-les per separat.</li>
+<li>Cerqueu la informació a la web del fabricant, no en fòrums.</li>
+</ul></details></div>
+</section><section class="sec" id="seccio-2"><h2>2. Windows Server: versions i edicions</h2><p>Els apunts del Moodle expliquen Windows NT, 2000 i 2003. Aquests sistemes fa molt temps que no tenen suport. Aquesta és la seqüència que us convé conèixer:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Versió</th>
+<th>Any</th>
+<th>Novetat destacada</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Windows NT 4.0</td>
+<td>1996</td>
+<td>Primer servidor amb dominis NT (PDC/BDC)</td>
+</tr>
+<tr>
+<td>Windows 2000 Server</td>
+<td>2000</td>
+<td>Apareix <strong>Active Directory</strong></td>
+</tr>
+<tr>
+<td>Windows Server 2003</td>
+<td>2003</td>
+<td>Consolida AD; és el que expliquen els apunts antics</td>
+</tr>
+<tr>
+<td>Windows Server 2008 / 2008 R2</td>
+<td>2008-2009</td>
+<td>Rols i característiques, Hyper-V, PowerShell</td>
+</tr>
+<tr>
+<td>Windows Server 2012 / 2012 R2</td>
+<td>2012-2013</td>
+<td>Server Manager modern, PowerShell 3+, Storage Spaces</td>
+</tr>
+<tr>
+<td>Windows Server 2016</td>
+<td>2016</td>
+<td>Contenidors, Nano Server, seguretat reforçada</td>
+</tr>
+<tr>
+<td>Windows Server 2019</td>
+<td>2019</td>
+<td>Windows Admin Center, Storage Migration Service</td>
+</tr>
+<tr>
+<td><strong>Windows Server 2022</strong></td>
+<td>2021</td>
+<td>Versió que fem servir. Seguretat de nucli, TLS 1.3, millores a SMB</td>
+</tr>
+<tr>
+<td>Windows Server 2025</td>
+<td>2024</td>
+<td>Última versió disponible</td>
+</tr>
+</tbody>
+</table></div>
+<div class="callout important"><p class="ctitle">Important</p><p>El suport de Microsoft té dues fases (principal i ampliat). Un servidor fora de suport ja no rep actualitzacions de seguretat i, en una empresa, és un risc inacceptable.</p></div>
+<h3>Edicions i llicències</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Edició</th>
+<th>Per a qui</th>
+<th>Idea principal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Essentials</td>
+<td>Petites empreses (fins a 25 usuaris)</td>
+<td>Limitada, sense virtualització</td>
+</tr>
+<tr>
+<td><strong>Standard</strong></td>
+<td>La majoria d'empreses</td>
+<td>Inclou 2 màquines virtuals per llicència</td>
+</tr>
+<tr>
+<td>Datacenter</td>
+<td>Virtualització intensiva i núvol</td>
+<td>Màquines virtuals il·limitades i funcions avançades</td>
+</tr>
+</tbody>
+</table></div>
+<p>Windows Server es llicencia <strong>per nuclis</strong> de processador (amb un mínim de 16 per servidor) i, a sobre, cal una <strong>CAL</strong> (<em>Client Access License</em>) per cada usuari o dispositiu que hi accedeixi.</p>
+<div class="callout canvi"><p class="ctitle">Què ha canviat respecte dels apunts antics</p><p>Els apunts antics parlen de «llicència per servidor o per dispositiu (connexions concurrents)». Avui el que es compra són llicències del servidor per nuclis més CAL d'usuari o de dispositiu. Ho veureu a la pràctica: l'assistent ja no us demana el mode de llicència.</p></div>
+<h3>Desktop Experience o Server Core</h3>
+<p>En instal·lar Windows Server heu d'escollir entre dues variants.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Variant</th>
+<th>Interfície</th>
+<th>Quan usar-la</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Desktop Experience</td>
+<td>Escriptori gràfic complet</td>
+<td>Aprenentatge i servidors administrats amb ratolí</td>
+</tr>
+<tr>
+<td>Server Core</td>
+<td>Només línia d'ordres i PowerShell</td>
+<td>Producció: menys superfície d'atac i menys actualitzacions</td>
+</tr>
+</tbody>
+</table></div>
+<div class="callout important"><p class="ctitle">Important</p><p>A les pràctiques del mòdul trieu sempre <strong>(Desktop Experience)</strong>. Si per error instal·leu Server Core, només veureu una finestra de línia d'ordres i heu de tornar a començar.</p></div>
+</section><section class="sec" id="seccio-3"><h2>3. Particions, sistemes d&#x27;arxius i arrencada</h2><p>Abans d'instal·lar heu de decidir on anirà el sistema i com s'organitzarà el disc.</p>
+<h3>MBR o GPT</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th></th>
+<th>MBR</th>
+<th>GPT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Firmware</td>
+<td>BIOS clàssica</td>
+<td>UEFI</td>
+</tr>
+<tr>
+<td>Particions</td>
+<td>4 primàries (o 3 + 1 estesa amb lògiques)</td>
+<td>Fins a 128 a Windows</td>
+</tr>
+<tr>
+<td>Mida màxima de disc</td>
+<td>2 TB</td>
+<td>Pràcticament il·limitada</td>
+</tr>
+<tr>
+<td>Robustesa</td>
+<td>Una sola taula al primer sector</td>
+<td>Taula duplicada al final del disc i control d'errors (CRC)</td>
+</tr>
+</tbody>
+</table></div>
+<p>En equips nous s'usa <strong>GPT amb UEFI</strong>. Les <em>particions primàries</em> poden arrencar un sistema operatiu; les <em>lògiques</em> viuen dins d'una partició <em>estesa</em> i només serveixen per a dades. Un instal·lador de Windows Server amb UEFI crea automàticament una partició de sistema EFI (FAT32, ~100 MB), una partició reservada de Microsoft (MSR, 16 MB) i la partició principal on va <code>C:</code>.</p>
+<figure class="diagram"><svg viewBox="0 0 760 190" role="img" aria-label="Particions que crea l'instal·lador de Windows Server en un disc GPT"><defs><marker id="m2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path class="ar2" d="M0 0L10 5L0 10z"/></marker></defs>
+<text class="b" x="20" y="28">💽 Disc virtual de 50 GB amb esquema GPT</text>
+<rect class="box" x="20" y="46" width="70" height="64" rx="8"/><text class="b" x="55.0" y="84" text-anchor="middle">EFI</text>
+<rect class="nw" x="96" y="46" width="44" height="64" rx="8"/><text class="b" x="118.0" y="84" text-anchor="middle">MSR</text>
+<rect class="hi" x="146" y="46" width="440" height="64" rx="8"/><text class="b" x="366.0" y="84" text-anchor="middle">C:  ·  el sistema</text>
+<rect class="box" x="592" y="46" width="148" height="64" rx="8"/><text class="b" x="666.0" y="84" text-anchor="middle">Recuperació</text>
+<text class="sm" x="20" y="146">EFI: l'arrencada UEFI viu aquí (FAT32, ~100 MB)</text><text class="sm" x="390" y="146">MSR: partició reservada de Microsoft (16 MB)</text>
+<text class="sm" x="20" y="170">C: tot Windows i els programes (NTFS)</text><text class="sm" x="390" y="170">Recuperació: eines per reparar el sistema</text>
+</svg><figcaption>Així queda el disc quan Windows s'instal·la sol. Les mides són il·lustratives.</figcaption></figure>
+
+<h3>Sistemes d'arxius</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Sistema</th>
+<th>Característiques</th>
+<th>Quan usar-lo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FAT32</td>
+<td>Molt compatible; fitxers de màxim 4 GB; sense permisos</td>
+<td>Llapis USB petits, partició EFI</td>
+</tr>
+<tr>
+<td>exFAT</td>
+<td>Sense límit pràctic de fitxer; sense permisos</td>
+<td>Discs externs entre sistemes</td>
+</tr>
+<tr>
+<td><strong>NTFS</strong></td>
+<td>Permisos per usuari (ACL), xifratge (EFS), compressió, quotes, registre de canvis (<em>journal</em>)</td>
+<td><strong>Sistema i dades d'un servidor Windows</strong></td>
+</tr>
+<tr>
+<td>ReFS</td>
+<td>Resistent a corrupció, pensat per a grans volums i virtualització</td>
+<td>Emmagatzematge de màquines virtuals i còpies</td>
+</tr>
+<tr>
+<td>ext4, XFS, Btrfs</td>
+<td>Sistemes propis de Linux (els veureu a la Tema 2)</td>
+<td>Servidors Linux</td>
+</tr>
+</tbody>
+</table></div>
+<div class="callout important"><p class="ctitle">Important</p><p>Els permisos NTFS són la base de tota la seguretat de fitxers de Windows. A més, Active Directory <strong>exigeix NTFS</strong> a les unitats on guarda la seva base de dades i la carpeta <code>SYSVOL</code>. Per això a un servidor mai no es fa servir FAT32 per al sistema ni per a les dades.</p></div>
+<h3>Com arrenca Windows</h3>
+<ol>
+<li>El firmware (BIOS o UEFI) fa la comprovació inicial del maquinari i busca un dispositiu d'arrencada.</li>
+<li>Carrega el <em>gestor d'arrencada</em> (<code>bootmgr</code> o <code>bootmgfw.efi</code>).</li>
+<li>El gestor llegeix el magatzem de dades d'arrencada (<strong>BCD</strong>) i mostra el menú si hi ha més d'un sistema.</li>
+<li>Carrega el nucli (<code>winload.exe</code>) i comença el sistema.</li>
+</ol>
+<figure class="code"><figcaption><span class="lang">PowerShell</span><span class="title">Consultar el magatzem d&#x27;arrencada</span><button class="copy" type="button">Copia</button></figcaption><div class="hl"><pre><code><span class="n">bcdedit</span> <span class="p">/</span><span class="n">enum</span>
+</code></pre></div></figure>
+<div class="callout canvi"><p class="ctitle">Què ha canviat respecte dels apunts antics</p><p>Els apunts parlen de <code>NTLDR</code>, <code>ntdetect.com</code> i <code>boot.ini</code>. Això era Windows XP i Windows 2003. Des de Windows Vista l'arrencada es governa amb el <strong>BCD</strong> i s'edita amb <code>bcdedit</code>; el fitxer <code>boot.ini</code> ja no existeix.</p></div>
+
+<div class="exercise" data-id="tema-1/bloc-1#1"><header><div class="ex-title"><span>Exercici:</span>Pla de particions d&#x27;un servidor</div><span class="lvl Intermedi">Intermedi</span><span class="time">15 min</span><label class="done"><input type="checkbox"> Fet</label></header><div class="ex-body"><p>Una empresa compra un servidor amb un disc SSD de 500 GB i un disc dur de 4 TB. Han de guardar el sistema, les carpetes dels usuaris i les còpies de seguretat. Proposeu un pla de particions (mida, lletra, sistema d'arxius i esquema MBR o GPT) i justifiqueu per què no ho posaríeu tot en una sola partició.</p></div><details><summary>Veure pistes</summary><ul>
+<li>Pensa en separar el sistema de les dades.</li>
+<li>Les còpies de seguretat no haurien d'anar al mateix disc físic que allò que copien.</li>
+<li>Recorda el límit de 2 TB del MBR.</li>
+</ul></details></div>
+</section><section class="sec" id="seccio-4"><h2>4. Preparar la instal·lació</h2><h3>Estudi de compatibilitat</h3>
+<p>Abans d'instal·lar heu de comprovar que el maquinari compleix els requisits. Per a Windows Server 2022 Microsoft demana com a mínim:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Mínim</th>
+<th>Recomanat per a la pràctica</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Processador</td>
+<td>64 bits, 1,4 GHz, amb virtualització assistida</td>
+<td>2 nuclis</td>
+</tr>
+<tr>
+<td>Memòria</td>
+<td>512 MB (Server Core), <strong>2 GB</strong> amb Desktop Experience</td>
+<td><strong>4 GB</strong></td>
+</tr>
+<tr>
+<td>Disc</td>
+<td>32 GB</td>
+<td>50 GB</td>
+</tr>
+<tr>
+<td>Xarxa</td>
+<td>Targeta Ethernet 1 Gbps</td>
+<td>Dues targetes: una NAT i una interna</td>
+</tr>
+<tr>
+<td>Firmware</td>
+<td>BIOS o UEFI</td>
+<td>UEFI amb GPT</td>
+</tr>
+</tbody>
+</table></div>
+<p>També heu de comprovar la compatibilitat amb el programari que es vol executar i amb els controladors dels dispositius.</p>
+<h3>Modes d'instal·lació</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Què fa</th>
+<th>Quan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Neta</td>
+<td>Formata i instal·la de zero</td>
+<td>Servidors nous. <strong>És el que fem</strong></td>
+</tr>
+<tr>
+<td>Actualització <em>in-place</em></td>
+<td>Manté dades i configuració</td>
+<td>Migrar d'una versió anterior compatible</td>
+</tr>
+<tr>
+<td>Migració</td>
+<td>Instal·la un servidor nou i hi mou rols i dades</td>
+<td>Canvis grans de versió</td>
+</tr>
+<tr>
+<td>Desatesa</td>
+<td>Un fitxer de respostes respon les preguntes</td>
+<td>Instal·lar molts equips iguals</td>
+</tr>
+<tr>
+<td>Per xarxa (PXE)</td>
+<td>Arrenca des d'un servidor d'imatges (WDS)</td>
+<td>Aules i parcs d'ordinadors</td>
+</tr>
+</tbody>
+</table></div></section><section class="sec" id="seccio-5"><h2>5. Instal·lació pas a pas amb VirtualBox</h2><figure class="diagram"><svg viewBox="0 0 760 170" role="img" aria-label="Ruta en cinc passos per tenir un servidor instal·lat"><defs><marker id="m3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path class="ar2" d="M0 0L10 5L0 10z"/></marker></defs>
+<path class="ln2" d="M70 70 L694 70"/>
+<circle class="hi" cx="70" cy="70" r="32"/><text class="ic" x="70" y="80" text-anchor="middle">💿</text><text class="b" x="70" y="128" text-anchor="middle">1 · ISO</text><text class="sm" x="70" y="148" text-anchor="middle">Imatge de Windows</text>
+<circle class="hi" cx="226" cy="70" r="32"/><text class="ic" x="226" y="80" text-anchor="middle">🧱</text><text class="b" x="226" y="128" text-anchor="middle">2 · MV</text><text class="sm" x="226" y="148" text-anchor="middle">Crea la màquina</text>
+<circle class="hi" cx="382" cy="70" r="32"/><text class="ic" x="382" y="80" text-anchor="middle">⚙️</text><text class="b" x="382" y="128" text-anchor="middle">3 · Instal·la</text><text class="sm" x="382" y="148" text-anchor="middle">Desktop Experience</text>
+<circle class="hi" cx="538" cy="70" r="32"/><text class="ic" x="538" y="80" text-anchor="middle">🔧</text><text class="b" x="538" y="128" text-anchor="middle">4 · Configura</text><text class="sm" x="538" y="148" text-anchor="middle">Nom, IP, updates</text>
+<circle class="hi" cx="694" cy="70" r="32"/><text class="ic" x="694" y="80" text-anchor="middle">✅</text><text class="b" x="694" y="128" text-anchor="middle">5 · Comprova</text><text class="sm" x="694" y="148" text-anchor="middle">Ping i ports</text>
+
+</svg><figcaption>La ruta d'aquest bloc: de l'ISO al servidor funcionant.</figcaption></figure>
+
+<h3>Crear la màquina virtual</h3>
+<p>A l'assistent de VirtualBox seleccioneu tipus <strong>Microsoft Windows</strong> i versió <strong>Windows 2022 (64-bit)</strong>. Reserveu 4 GB de RAM, 2 CPU i un disc VDI de <strong>50 GB d'expansió dinàmica</strong>. La mateixa màquina es pot crear per línia d'ordres, cosa útil quan n'heu de crear moltes:</p>
+<figure class="code"><figcaption><span class="lang">PowerShell</span><span class="title">Crear la màquina amb VBoxManage</span><button class="copy" type="button">Copia</button></figcaption><div class="hl"><pre><code><span class="nv">$vm</span>  <span class="p">=</span> <span class="s2">&quot;Windows2022&quot;</span>
+<span class="nv">$dir</span> <span class="p">=</span> <span class="s2">&quot;D:\Mvirtuals\Windows2022&quot;</span>
+<span class="nv">$iso</span> <span class="p">=</span> <span class="s2">&quot;D:\isos\windows_server_2022.iso&quot;</span>
+
+<span class="n">VBoxManage</span> <span class="n">createvm</span> <span class="p">-</span><span class="n">-name</span> <span class="nv">$vm</span> <span class="p">-</span><span class="n">-ostype</span> <span class="n">Windows2022_64</span> <span class="p">-</span><span class="n">-register</span> <span class="p">-</span><span class="n">-basefolder</span> <span class="s2">&quot;D:\Mvirtuals&quot;</span>
+<span class="n">VBoxManage</span> <span class="n">modifyvm</span> <span class="nv">$vm</span> <span class="p">-</span><span class="n">-memory</span> <span class="n">4096</span> <span class="p">-</span><span class="n">-cpus</span> <span class="n">2</span> <span class="p">-</span><span class="n">-vram</span> <span class="n">128</span> <span class="p">-</span><span class="n">-nic1</span> <span class="n">nat</span> <span class="p">-</span><span class="n">-nic2</span> <span class="n">intnet</span> <span class="p">-</span><span class="n">-intnet2</span> <span class="s2">&quot;xarxa-aula&quot;</span>
+<span class="n">VBoxManage</span> <span class="n">createmedium</span> <span class="n">disk</span> <span class="p">-</span><span class="n">-filename</span> <span class="s2">&quot;$dir\Windows server 2022.vdi&quot;</span> <span class="p">-</span><span class="n">-size</span> <span class="n">51200</span> <span class="p">-</span><span class="n">-format</span> <span class="n">VDI</span>
+<span class="n">VBoxManage</span> <span class="n">storagectl</span> <span class="nv">$vm</span> <span class="p">-</span><span class="n">-name</span> <span class="n">SATA</span> <span class="p">-</span><span class="n">-add</span> <span class="n">sata</span> <span class="p">-</span><span class="n">-controller</span> <span class="n">IntelAhci</span>
+<span class="n">VBoxManage</span> <span class="n">storageattach</span> <span class="nv">$vm</span> <span class="p">-</span><span class="n">-storagectl</span> <span class="n">SATA</span> <span class="p">-</span><span class="n">-port</span> <span class="n">0</span> <span class="p">-</span><span class="n">-device</span> <span class="n">0</span> <span class="p">-</span><span class="n">-type</span> <span class="n">hdd</span> <span class="p">-</span><span class="n">-medium</span> <span class="s2">&quot;$dir\Windows server 2022.vdi&quot;</span>
+<span class="n">VBoxManage</span> <span class="n">storageattach</span> <span class="nv">$vm</span> <span class="p">-</span><span class="n">-storagectl</span> <span class="n">SATA</span> <span class="p">-</span><span class="n">-port</span> <span class="n">1</span> <span class="p">-</span><span class="n">-device</span> <span class="n">0</span> <span class="p">-</span><span class="n">-type</span> <span class="n">dvddrive</span> <span class="p">-</span><span class="n">-medium</span> <span class="nv">$iso</span>
+</code></pre></div></figure>
+<div class="callout informacio"><p class="ctitle">Informació</p><p>La targeta 1 (NAT) dóna sortida a Internet per instal·lar actualitzacions. La targeta 2 està connectada a una <strong>xarxa interna</strong> de VirtualBox compartida només entre les vostres màquines virtuals; és on col·locareu el servidor i els clients del domini.</p></div>
+<h3>Les pantalles de l'instal·lador</h3>
+<p>Arrenqueu la màquina amb l'ISO i seguiu aquests passos. Podeu deixar la resta de valors per defecte.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Pantalla</th>
+<th>Què heu de triar</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Idioma, format d'hora i teclat</td>
+<td>Català o castellà, teclat espanyol</td>
+</tr>
+<tr>
+<td>Instal·lar ara</td>
+<td>Botó <strong>Install now</strong></td>
+</tr>
+<tr>
+<td>Clau de producte</td>
+<td>«No tinc clau» (edició d'avaluació)</td>
+</tr>
+<tr>
+<td>Sistema operatiu</td>
+<td><strong>Standard (Desktop Experience)</strong></td>
+</tr>
+<tr>
+<td>Termes de llicència</td>
+<td>Acceptar</td>
+</tr>
+<tr>
+<td>Tipus d'instal·lació</td>
+<td><strong>Personalitzada</strong> (instal·lació neta)</td>
+</tr>
+<tr>
+<td>On instal·lar</td>
+<td>Seleccioneu l'espai sense assignar i premeu <em>Següent</em>. L'assistent crea les particions</td>
+</tr>
+<tr>
+<td>Còpia de fitxers</td>
+<td>Espereu; l'equip es reinicia sol</td>
+</tr>
+<tr>
+<td>Contrasenya de l'Administrador</td>
+<td>Una contrasenya que compleixi la complexitat (majúscules, minúscules, xifres i símbol)</td>
+</tr>
+<tr>
+<td>Inici de sessió</td>
+<td><code>Ctrl + Alt + Supr</code> (a VirtualBox: menú <em>Màquina → Inserir Ctrl-Alt-Supr</em>)</td>
+</tr>
+</tbody>
+</table></div>
+<p>Quan acabeu, s'obre automàticament el <strong>Gestor del servidor</strong> (<em>Server Manager</em>), des d'on s'administren tots els rols.</p>
+<div class="callout compte"><p class="ctitle">Compte</p><p>Feu una <strong>instantània</strong> (<em>snapshot</em>) de la màquina virtual just després de la instal·lació neta. Si més endavant esteu a mig configurar un domini i alguna cosa falla, podreu tornar enrere en un minut.</p></div>
+</section><section class="sec" id="seccio-6"><h2>6. Configuració inicial, connectivitat i documentació</h2><h3>Configurar el servidor</h3>
+<p>Un servidor recent instal·lat encara no és útil. Cal fixar-li un nom, una IP estàtica (un servidor no pot canviar d'adreça amb DHCP), la data i l'hora, i les actualitzacions. Ho podeu fer amb l'entorn gràfic o amb PowerShell:</p>
+<figure class="code"><figcaption><span class="lang">PowerShell</span><span class="title">Nom, grup de treball i xarxa</span><button class="copy" type="button">Copia</button></figcaption><div class="hl"><pre><code><span class="c"># Canviar el nom de l&#39;equip (per exemple PCVGL) i reiniciar</span>
+<span class="nb">Rename-Computer</span> <span class="n">-NewName</span> <span class="s2">&quot;PCVGL&quot;</span> <span class="n">-Restart</span>
+
+<span class="c"># Pertànyer a un grup de treball</span>
+<span class="nb">Add-Computer</span> <span class="n">-WorkgroupName</span> <span class="s2">&quot;GRUPA&quot;</span>
+
+<span class="c"># IP estàtica a la targeta interna (pregunteu al professor el rang de l&#39;aula)</span>
+<span class="nb">New-NetIPAddress</span> <span class="n">-InterfaceAlias</span> <span class="s2">&quot;Ethernet 2&quot;</span> <span class="n">-IPAddress</span> <span class="n">192</span><span class="p">.</span><span class="n">168</span><span class="p">.</span><span class="n">10</span><span class="p">.</span><span class="n">10</span> <span class="n">-PrefixLength</span> <span class="n">24</span> <span class="n">-DefaultGateway</span> <span class="n">192</span><span class="p">.</span><span class="n">168</span><span class="p">.</span><span class="n">10</span><span class="p">.</span><span class="n">1</span>
+<span class="nb">Set-DnsClientServerAddress</span> <span class="n">-InterfaceAlias</span> <span class="s2">&quot;Ethernet 2&quot;</span> <span class="n">-ServerAddresses</span> <span class="n">192</span><span class="p">.</span><span class="n">168</span><span class="p">.</span><span class="n">10</span><span class="p">.</span><span class="n">1</span>
+</code></pre></div></figure>
+<p>Amb <code>Get-NetAdapter</code> veureu els noms reals de les targetes. En una instal·lació Server Core, l'eina <code>sconfig</code> mostra un menú numerat que fa les mateixes tasques: nom de l'equip, xarxa, escriptori remot i Windows Update.</p>
+<h3>Actualitzar el sistema</h3>
+<p>Un servidor s'ha d'actualitzar sempre abans de posar-lo en servei. Des de <code>sconfig</code> (opció <strong>6</strong>) o des de <em>Configuració → Windows Update</em>. En una empresa, amb molts servidors, es fa servir <strong>WSUS</strong> o Azure Update Manager per aprovar i distribuir els pedaços de manera centralitzada.</p>
+<h3>Comprovar la connectivitat amb els clients</h3>
+<div class="callout compte"><p class="ctitle">Compte</p><p>Windows Server bloqueja per defecte el <code>ping</code> entrant amb el tallafocs. Si feu <code>ping</code> al servidor des d'un client i no respon, no és un problema de xarxa: heu d'activar la regla d'eco ICMP.</p></div>
+<figure class="code"><figcaption><span class="lang">PowerShell</span><span class="title">Permetre el ping i comprovar la xarxa</span><button class="copy" type="button">Copia</button></figcaption><div class="hl"><pre><code><span class="nb">Enable-NetFirewallRule</span> <span class="n">-DisplayName</span> <span class="s2">&quot;File and Printer Sharing (Echo Request - ICMPv4-In)&quot;</span>
+
+<span class="n">ipconfig</span> <span class="p">/</span><span class="n">all</span>
+<span class="nb">Test-NetConnection</span> <span class="n">-ComputerName</span> <span class="n">192</span><span class="p">.</span><span class="n">168</span><span class="p">.</span><span class="n">10</span><span class="p">.</span><span class="n">20</span>
+<span class="nb">Test-NetConnection</span> <span class="n">-ComputerName</span> <span class="n">192</span><span class="p">.</span><span class="n">168</span><span class="p">.</span><span class="n">10</span><span class="p">.</span><span class="n">20</span> <span class="n">-Port</span> <span class="n">445</span>
+</code></pre></div></figure>
+<p><code>Test-NetConnection</code> és millor que <code>ping</code>: també comprova si un port concret (per exemple 445, el de compartició de fitxers) està obert. Per si voleu treballar amb l'escriptori remot, activeu-lo amb l'opció <em>Configuració → Escriptori remot</em> i deixeu marcada l'autenticació a nivell de xarxa (NLA).</p>
+<h3>Automatitzar instal·lacions</h3>
+<p>Quan cal instal·lar deu servidors iguals, no es fa deu vegades el procés manual. S'escriu un <strong>fitxer de respostes</strong> (<code>Autounattend.xml</code>), que es col·loca a l'arrel del suport d'instal·lació i respon les preguntes de l'assistent. Es crea amb l'eina <em>Windows System Image Manager</em> (part del Windows ADK). Un fragment mostra la idea:</p>
+<figure class="code"><figcaption><span class="lang">XML</span><span class="title">Fragment d&#x27;Autounattend.xml (nom de l&#x27;equip i contrasenya)</span><button class="copy" type="button">Copia</button></figcaption><div class="hl"><pre><code><span class="nt">&lt;settings</span><span class="w"> </span><span class="na">pass=</span><span class="s">&quot;specialize&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;component</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Microsoft-Windows-Shell-Setup&quot;</span><span class="w"> </span><span class="na">processorArchitecture=</span><span class="s">&quot;amd64&quot;</span>
+<span class="w">             </span><span class="na">publicKeyToken=</span><span class="s">&quot;31bf3856ad364e35&quot;</span><span class="w"> </span><span class="na">language=</span><span class="s">&quot;neutral&quot;</span><span class="w"> </span><span class="na">versionScope=</span><span class="s">&quot;nonSxS&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;ComputerName&gt;</span>SRV-AULA-01<span class="nt">&lt;/ComputerName&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/component&gt;</span>
+<span class="nt">&lt;/settings&gt;</span>
+</code></pre></div></figure>
+<p>Per als equips ja instal·lats, les tasques repetitives es guarden en un script de PowerShell (<code>.ps1</code>), com el que heu vist per crear la màquina virtual. La resta del mòdul aprofita la mateixa idea.</p>
+<h3>Documentar la instal·lació</h3>
+<p>Cada servidor que s'instal·la a una empresa ha de tenir una fitxa. La informació la podeu recollir amb <code>systeminfo</code> o <code>Get-ComputerInfo</code>.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Dada</th>
+<th>Valor d'exemple</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Nom de l'equip</td>
+<td>PCVGL</td>
+</tr>
+<tr>
+<td>Sistema operatiu</td>
+<td>Windows Server 2022 Standard (Desktop Experience)</td>
+</tr>
+<tr>
+<td>Versió i compilació</td>
+<td>Es veu amb <code>winver</code></td>
+</tr>
+<tr>
+<td>Adreça IP / màscara / porta d'enllaç</td>
+<td>192.168.10.10 / 255.255.255.0 / 192.168.10.1</td>
+</tr>
+<tr>
+<td>Grup de treball o domini</td>
+<td>GRUPA</td>
+</tr>
+<tr>
+<td>Rols instal·lats</td>
+<td>Cap (encara)</td>
+</tr>
+<tr>
+<td>Data d'instal·lació i responsable</td>
+<td>29/09/2026, nom de l'administrador</td>
+</tr>
+<tr>
+<td>Incidències i solucions</td>
+<td>«El ping no responia: activada la regla ICMP»</td>
+</tr>
+</tbody>
+</table></div>
+<div class="exercise" data-id="tema-1/bloc-1#1"><header><div class="ex-title"><span>Exercici:</span>Instal·la el teu Windows Server 2022</div><span class="lvl Intermedi">Intermedi</span><span class="time">90 min</span><label class="done"><input type="checkbox"> Fet</label></header><div class="ex-body"><p>Creeu una màquina virtual Windows Server 2022 Standard (Desktop Experience) amb 4 GB de RAM i un disc dinàmic de 50 GB. Poseu-li el nom <code>PCXYZ</code> (X, Y i Z són les inicials del vostre nom i cognoms), fixeu una IP estàtica dins el rang de l'aula i deixeu-lo com a membre d'un grup de treball anomenat <code>GRUPA</code> o <code>GRUPB</code>. Activeu l'escriptori remot amb NLA. Comproveu amb <code>Test-NetConnection</code> que arribeu a la màquina d'un company. Lliureu les captures de tot el procés i la fitxa del servidor.</p></div><details><summary>Veure pistes</summary><ul>
+<li>Feu una instantània abans d'anar més lluny.</li>
+<li>Si el <code>ping</code> no respon, activeu la regla ICMP al tallafocs.</li>
+<li>Copieu la sortida de <code>ipconfig /all</code> i de <code>systeminfo</code> com a evidència.</li>
+</ul></details></div>
+
+<div class="callout exit"><p class="ctitle">Èxit</p><p><strong>Ja teniu el servidor.</strong> Si podeu explicar la diferència entre client/servidor i grup de treball, escollir una partició i un sistema d'arxius amb sentit, i heu deixat instal·lat un Windows Server 2022 amb IP estàtica i connectivitat comprovada, esteu preparats per al bloc següent: convertir-lo en controlador de domini.</p></div>
+</section><p class="ex-progress"></p><div class="pager"><span></span><a class="next" rel="next" href="../../tema-1/bloc-2/"><small>Següent →</small>1.2 Dominis i Active Directory</a></div></div></div>
+<footer class="site-footer">Departament d'Informàtica · Institut F. Vidal i Barraquer · Tarragona · Curs 2025-2026. Basat en el curs de Moodle del mòdul MP0224 i la programació del departament.</footer>
+</main>
+</div>
+<div class="status" role="status">
+  <span id="statusText">Curs SOX</span><span class="grow"></span>
+  <span class="hint">Tecles ← →</span>
+  <button id="goPrev" type="button" aria-label="Bloc anterior">←</button><button id="goNext" type="button" aria-label="Bloc següent">→</button><button id="goTop" type="button" aria-label="Torna a dalt">↑</button>
+</div>
+<script src="../../assets/search-index.js"></script><script src="../../assets/app.js"></script>
+</body>
+</html>
