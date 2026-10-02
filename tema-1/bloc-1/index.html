@@ -44,6 +44,7 @@
 <li><a data-sec="seccio-3" href="../../tema-1/bloc-3/#seccio-3">3. Grups</a></li>
 <li><a data-sec="seccio-4" href="../../tema-1/bloc-3/#seccio-4">4. Perfils d&#x27;usuari</a></li>
 <li><a data-sec="seccio-5" href="../../tema-1/bloc-3/#seccio-5">5. Directives de grup (GPO)</a></li>
+<li><a data-sec="seccio-6" href="../../tema-1/bloc-3/#seccio-6">6. Resum del tema i autoavaluació</a></li>
 </ul></li>
 </ul></div>
 <div class="nav-unit soon" style="--u:#b04fc0"><span class="uname"><span class="dot"></span><span>Tema 2. Sistemes operatius lliures en xarxa <em>(aviat)</em></span></span><ul><li><span class="soon-item">2.1 Instal·lació i explotació d&#x27;Ubuntu Server</span></li><li><span class="soon-item">2.2 Usuaris, grups i permisos a Linux</span></li><li><span class="soon-item">2.3 Monitoratge, serveis i tasques automàtiques</span></li><li><span class="soon-item">2.4 Serveis de directori amb OpenLDAP</span></li><li><span class="soon-item">2.5 Autenticació d&#x27;usuaris: NSS, PAM i SSSD</span></li></ul></div>
@@ -202,57 +203,67 @@
 <th>Versió</th>
 <th>Any</th>
 <th>Novetat destacada</th>
+<th>Suport ampliat fins a</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>Windows NT 4.0</td>
 <td>1996</td>
-<td>Primer servidor amb dominis NT (PDC/BDC)</td>
+<td>Dominis NT amb PDC i BDC</td>
+<td>Finalitzat</td>
 </tr>
 <tr>
 <td>Windows 2000 Server</td>
 <td>2000</td>
 <td>Apareix <strong>Active Directory</strong></td>
+<td>Finalitzat</td>
 </tr>
 <tr>
 <td>Windows Server 2003</td>
 <td>2003</td>
 <td>Consolida AD; és el que expliquen els apunts antics</td>
+<td>Finalitzat</td>
 </tr>
 <tr>
 <td>Windows Server 2008 / 2008 R2</td>
 <td>2008-2009</td>
-<td>Rols i característiques, Hyper-V, PowerShell</td>
+<td>Server Core, rols i característiques, Hyper-V</td>
+<td>Finalitzat</td>
 </tr>
 <tr>
 <td>Windows Server 2012 / 2012 R2</td>
 <td>2012-2013</td>
-<td>Server Manager modern, PowerShell 3+, Storage Spaces</td>
+<td>Server Manager modern, PowerShell molt ampliat, Storage Spaces</td>
+<td>Finalitzat</td>
 </tr>
 <tr>
 <td>Windows Server 2016</td>
 <td>2016</td>
 <td>Contenidors, Nano Server, seguretat reforçada</td>
+<td>12/01/2027</td>
 </tr>
 <tr>
 <td>Windows Server 2019</td>
-<td>2019</td>
-<td>Windows Admin Center, Storage Migration Service</td>
+<td>2018</td>
+<td>Storage Migration Service, Windows Admin Center</td>
+<td>09/01/2029</td>
 </tr>
 <tr>
 <td><strong>Windows Server 2022</strong></td>
 <td>2021</td>
-<td>Versió que fem servir. Seguretat de nucli, TLS 1.3, millores a SMB</td>
+<td><strong>La que fem servir.</strong> Secured-core, TLS 1.3, millores a SMB</td>
+<td>14/10/2031</td>
 </tr>
 <tr>
 <td>Windows Server 2025</td>
 <td>2024</td>
-<td>Última versió disponible</td>
+<td>Versió LTSC actual. Primera basada en Windows 11; nou nivell funcional d'AD</td>
+<td>14/11/2034</td>
 </tr>
 </tbody>
 </table></div>
-<div class="callout important"><p class="ctitle">Important</p><p>El suport de Microsoft té dues fases (principal i ampliat). Un servidor fora de suport ja no rep actualitzacions de seguretat i, en una empresa, és un risc inacceptable.</p></div>
+<div class="callout important"><p class="ctitle">Important</p><p>El suport de Microsoft té dues fases: <strong>principal</strong> (correccions i novetats) i <strong>ampliat</strong> (només seguretat). Per a Windows Server 2022, el suport principal acaba el 13/10/2026 i l'ampliat el 14/10/2031. Un servidor fora de suport ja no rep actualitzacions de seguretat i, en una empresa, és un risc inacceptable. Les pràctiques del mòdul usen la 2022; les tasques d'aquest bloc són pràcticament les mateixes a la 2025.</p></div>
 <h3>Edicions i llicències</h3>
 <div class="table-wrap"><table>
 <thead>
@@ -265,8 +276,8 @@
 <tbody>
 <tr>
 <td>Essentials</td>
-<td>Petites empreses (fins a 25 usuaris)</td>
-<td>Limitada, sense virtualització</td>
+<td>Petites empreses (límit de 25 usuaris)</td>
+<td>Edició limitada; no està disponible a totes les versions</td>
 </tr>
 <tr>
 <td><strong>Standard</strong></td>
@@ -339,7 +350,8 @@
 </tr>
 </tbody>
 </table></div>
-<p>En equips nous s'usa <strong>GPT amb UEFI</strong>. Les <em>particions primàries</em> poden arrencar un sistema operatiu; les <em>lògiques</em> viuen dins d'una partició <em>estesa</em> i només serveixen per a dades. Un instal·lador de Windows Server amb UEFI crea automàticament una partició de sistema EFI (FAT32, ~100 MB), una partició reservada de Microsoft (MSR, 16 MB) i la partició principal on va <code>C:</code>.</p>
+<p>En equips nous s'usa <strong>GPT amb UEFI</strong>. Les <em>particions primàries</em> poden arrencar un sistema operatiu; les <em>lògiques</em> viuen dins d'una partició <em>estesa</em> i només serveixen per a dades. Un instal·lador de Windows Server amb UEFI crea automàticament una partició de sistema EFI (FAT32, ~100 MB), una partició reservada de Microsoft (MSR, 16 MB) i la partició principal on va <code>C:</code> (i, segons la versió, una petita partició de recuperació).</p>
+<div class="callout informacio"><p class="ctitle">Informació</p><p><strong>Compte amb VirtualBox.</strong> Per defecte arrenca en mode <strong>BIOS</strong>. Llavors l'instal·lador crea un disc MBR amb una partició «reservada del sistema» d'uns 500 MB, no l'estructura EFI/MSR d'aquí dalt. Si voleu practicar amb GPT, activeu <em>Configuració → Sistema → Habilita EFI</em> abans d'instal·lar.</p></div>
 <figure class="diagram"><svg viewBox="0 0 760 190" role="img" aria-label="Particions que crea l'instal·lador de Windows Server en un disc GPT"><defs><marker id="m2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path class="ar2" d="M0 0L10 5L0 10z"/></marker></defs>
 <text class="b" x="20" y="28">💽 Disc virtual de 50 GB amb esquema GPT</text>
 <rect class="box" x="20" y="46" width="70" height="64" rx="8"/><text class="b" x="55.0" y="84" text-anchor="middle">EFI</text>
@@ -387,13 +399,13 @@
 </tr>
 </tbody>
 </table></div>
-<div class="callout important"><p class="ctitle">Important</p><p>Els permisos NTFS són la base de tota la seguretat de fitxers de Windows. A més, Active Directory <strong>exigeix NTFS</strong> a les unitats on guarda la seva base de dades i la carpeta <code>SYSVOL</code>. Per això a un servidor mai no es fa servir FAT32 per al sistema ni per a les dades.</p></div>
+<div class="callout important"><p class="ctitle">Important</p><p>Els permisos NTFS són la base de tota la seguretat de fitxers de Windows. A més, la carpeta <code>SYSVOL</code> d'Active Directory ha d'estar en un volum <strong>NTFS</strong>. Per això a un servidor mai no es fa servir FAT32 per al sistema ni per a les dades.</p></div>
 <h3>Com arrenca Windows</h3>
 <ol>
 <li>El firmware (BIOS o UEFI) fa la comprovació inicial del maquinari i busca un dispositiu d'arrencada.</li>
 <li>Carrega el <em>gestor d'arrencada</em> (<code>bootmgr</code> o <code>bootmgfw.efi</code>).</li>
 <li>El gestor llegeix el magatzem de dades d'arrencada (<strong>BCD</strong>) i mostra el menú si hi ha més d'un sistema.</li>
-<li>Carrega el nucli (<code>winload.exe</code>) i comença el sistema.</li>
+<li>Carrega el nucli (<code>winload.exe</code>, o <code>winload.efi</code> en UEFI) i comença el sistema.</li>
 </ol>
 <figure class="code"><figcaption><span class="lang">PowerShell</span><span class="title">Consultar el magatzem d&#x27;arrencada</span><button class="copy" type="button">Copia</button></figcaption><div class="hl"><pre><code><span class="n">bcdedit</span> <span class="p">/</span><span class="n">enum</span>
 </code></pre></div></figure>
@@ -417,7 +429,7 @@
 <tbody>
 <tr>
 <td>Processador</td>
-<td>64 bits, 1,4 GHz, amb virtualització assistida</td>
+<td>64 bits, 1,4 GHz, amb NX/DEP i SLAT (EPT/NPT)</td>
 <td>2 nuclis</td>
 </tr>
 <tr>
@@ -502,6 +514,7 @@
 <span class="n">VBoxManage</span> <span class="n">storageattach</span> <span class="nv">$vm</span> <span class="p">-</span><span class="n">-storagectl</span> <span class="n">SATA</span> <span class="p">-</span><span class="n">-port</span> <span class="n">0</span> <span class="p">-</span><span class="n">-device</span> <span class="n">0</span> <span class="p">-</span><span class="n">-type</span> <span class="n">hdd</span> <span class="p">-</span><span class="n">-medium</span> <span class="s2">&quot;$dir\Windows server 2022.vdi&quot;</span>
 <span class="n">VBoxManage</span> <span class="n">storageattach</span> <span class="nv">$vm</span> <span class="p">-</span><span class="n">-storagectl</span> <span class="n">SATA</span> <span class="p">-</span><span class="n">-port</span> <span class="n">1</span> <span class="p">-</span><span class="n">-device</span> <span class="n">0</span> <span class="p">-</span><span class="n">-type</span> <span class="n">dvddrive</span> <span class="p">-</span><span class="n">-medium</span> <span class="nv">$iso</span>
 </code></pre></div></figure>
+<p>Si PowerShell no troba <code>VBoxManage</code>, afegiu <code>C:\Program Files\Oracle\VirtualBox</code> al PATH o escriviu la ruta completa de l'executable.</p>
 <div class="callout informacio"><p class="ctitle">Informació</p><p>La targeta 1 (NAT) dóna sortida a Internet per instal·lar actualitzacions. La targeta 2 està connectada a una <strong>xarxa interna</strong> de VirtualBox compartida només entre les vostres màquines virtuals; és on col·locareu el servidor i els clients del domini.</p></div>
 <h3>Les pantalles de l'instal·lador</h3>
 <p>Arrenqueu la màquina amb l'ISO i seguiu aquests passos. Podeu deixar la resta de valors per defecte.</p>
@@ -523,7 +536,7 @@
 </tr>
 <tr>
 <td>Clau de producte</td>
-<td>«No tinc clau» (edició d'avaluació)</td>
+<td>Si us la demana: <strong>No tinc clau de producte</strong>. L'ISO d'avaluació no la demana</td>
 </tr>
 <tr>
 <td>Sistema operatiu</td>
@@ -551,7 +564,7 @@
 </tr>
 <tr>
 <td>Inici de sessió</td>
-<td><code>Ctrl + Alt + Supr</code> (a VirtualBox: menú <em>Màquina → Inserir Ctrl-Alt-Supr</em>)</td>
+<td><code>Ctrl + Alt + Supr</code>. A VirtualBox: tecla <em>Host</em> (Ctrl dret) + <code>Supr</code>, o el menú <em>Entrada → Teclat → Insereix Ctrl-Alt-Supr</em></td>
 </tr>
 </tbody>
 </table></div>

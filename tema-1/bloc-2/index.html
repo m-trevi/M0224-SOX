@@ -44,6 +44,7 @@
 <li><a data-sec="seccio-3" href="../../tema-1/bloc-3/#seccio-3">3. Grups</a></li>
 <li><a data-sec="seccio-4" href="../../tema-1/bloc-3/#seccio-4">4. Perfils d&#x27;usuari</a></li>
 <li><a data-sec="seccio-5" href="../../tema-1/bloc-3/#seccio-5">5. Directives de grup (GPO)</a></li>
+<li><a data-sec="seccio-6" href="../../tema-1/bloc-3/#seccio-6">6. Resum del tema i autoavaluació</a></li>
 </ul></li>
 </ul></div>
 <div class="nav-unit soon" style="--u:#b04fc0"><span class="uname"><span class="dot"></span><span>Tema 2. Sistemes operatius lliures en xarxa <em>(aviat)</em></span></span><ul><li><span class="soon-item">2.1 Instal·lació i explotació d&#x27;Ubuntu Server</span></li><li><span class="soon-item">2.2 Usuaris, grups i permisos a Linux</span></li><li><span class="soon-item">2.3 Monitoratge, serveis i tasques automàtiques</span></li><li><span class="soon-item">2.4 Serveis de directori amb OpenLDAP</span></li><li><span class="soon-item">2.5 Autenticació d&#x27;usuaris: NSS, PAM i SSSD</span></li></ul></div>
@@ -52,7 +53,7 @@
 <div class="nav-extra"><span style="font-size:.82rem;color:var(--muted)">Departament d'Informàtica<br>Institut F. Vidal i Barraquer · Tarragona<br>Curs 2025-2026 · v1.0</span></div>
 </aside>
 <main id="main-content">
-<div class="page" data-page="tema-1/bloc-2" data-title="Bloc 1.2: Dominis i Active Directory | Sistemes operatius en xarxa" data-unit="1" data-bloc="2" data-nunits="4" data-nblocs="3"><div class="content"><nav class="crumbs" aria-label="Ruta"><a data-page="index" href="../../">Inici</a> &gt; <a data-page="tema-1" href="../../tema-1/">Tema 1: Sistemes operatius propietaris en xarxa</a> &gt; Bloc 1.2: Dominis i Active Directory</nav><header class="block-head" style="--u:#7a4fd1"><h1>Bloc 1.2: Dominis i Active Directory</h1><p class="lead">Domini, arbre, bosc, UO, controlador de domini, clients al domini, segon DC i relacions de confiança.</p><div class="chips"><span class="chip unit">Tema 1</span><span class="chip">RA3</span><span class="chip">10 h</span></div></header><details class="ra-panel"><summary>Resultats d'aprenentatge i criteris d'avaluació d'aquest bloc</summary><div class="inner"><h4>RA3. Realitza tasques de gestió sobre dominis identificant necessitats i aplicant eines d&#x27;administració de dominis.</h4><ul><li><span class="num">3.1</span>Identifica la funció del servei de directori, els seus elements i nomenclatura.</li><li><span class="num">3.2</span>Reconeix el concepte de domini i les seves funcions.</li><li><span class="num">3.3</span>Estableix relacions de confiança entre dominis.</li><li><span class="num">3.4</span>Realitza la instal·lació del servei de directori.</li><li><span class="num">3.5</span>Realitza la configuració bàsica del servei de directori.</li><li><span class="num">3.6</span>Utilitza agrupacions d&#x27;elements per a la creació de models administratius.</li><li><span class="num">3.7</span>Analitza l&#x27;estructura del servei de directori.</li><li><span class="num">3.8</span>Utilitza eines d&#x27;administració de dominis.</li></ul></div></details><div class="intro"><p>Fins ara el vostre servidor és un ordinador més, amb els seus usuaris locals. En aquest bloc el converteixen en el cervell de la xarxa: un <strong>controlador de domini</strong> que autentica usuaris i equips. Veureu per què existeix Active Directory, com s'organitza, com es crea un domini, com s'hi afegeix un client i com es connecten dos dominis entre ells.</p></div><nav class="toc-inline" aria-label="Contingut del bloc"><h2>Contingut del bloc</h2><ol><li><a href="../../tema-1/bloc-2/#seccio-1">Del grup de treball al domini</a></li><li><a href="../../tema-1/bloc-2/#seccio-2">Estructura lògica: domini, arbre, bosc i UO</a></li><li><a href="../../tema-1/bloc-2/#seccio-3">Estructura física: controladors, llocs i rols</a></li><li><a href="../../tema-1/bloc-2/#seccio-4">Crear un domini</a></li><li><a href="../../tema-1/bloc-2/#seccio-5">Afegir un client al domini</a></li><li><a href="../../tema-1/bloc-2/#seccio-6">Segon controlador, despromoció i relacions de confiança</a></li></ol></nav><section class="sec" id="seccio-1"><h2>1. Del grup de treball al domini</h2><p>En un grup de treball cada ordinador té la seva pròpia llista d'usuaris. Si l'Anna vol entrar a tres ordinadors, ha de tenir tres comptes, amb tres contrasenyes que caldrà canviar per separat. Amb deu equips és molest; amb mil, inviable.</p>
+<div class="page" data-page="tema-1/bloc-2" data-title="Bloc 1.2: Dominis i Active Directory | Sistemes operatius en xarxa" data-unit="1" data-bloc="2" data-nunits="4" data-nblocs="3"><div class="content"><nav class="crumbs" aria-label="Ruta"><a data-page="index" href="../../">Inici</a> &gt; <a data-page="tema-1" href="../../tema-1/">Tema 1: Sistemes operatius propietaris en xarxa</a> &gt; Bloc 1.2: Dominis i Active Directory</nav><header class="block-head" style="--u:#7a4fd1"><h1>Bloc 1.2: Dominis i Active Directory</h1><p class="lead">Domini, arbre, bosc, UO, controlador de domini, clients al domini, segon DC i relacions de confiança.</p><div class="chips"><span class="chip unit">Tema 1</span><span class="chip">RA3</span><span class="chip">10 h</span></div></header><details class="ra-panel"><summary>Resultats d'aprenentatge i criteris d'avaluació d'aquest bloc</summary><div class="inner"><h4>RA3. Realitza tasques de gestió sobre dominis identificant necessitats i aplicant eines d&#x27;administració de dominis.</h4><ul><li><span class="num">3.1</span>Identifica la funció del servei de directori, els seus elements i nomenclatura.</li><li><span class="num">3.2</span>Reconeix el concepte de domini i les seves funcions.</li><li><span class="num">3.3</span>Estableix relacions de confiança entre dominis.</li><li><span class="num">3.4</span>Realitza la instal·lació del servei de directori.</li><li><span class="num">3.5</span>Realitza la configuració bàsica del servei de directori.</li><li><span class="num">3.6</span>Utilitza agrupacions d&#x27;elements per a la creació de models administratius.</li><li><span class="num">3.7</span>Analitza l&#x27;estructura del servei de directori.</li><li><span class="num">3.8</span>Utilitza eines d&#x27;administració de dominis.</li></ul></div></details><div class="intro"><p>Fins ara el vostre servidor és un ordinador més, amb els seus usuaris locals. En aquest bloc el convertiu en el cervell de la xarxa: un <strong>controlador de domini</strong> que autentica usuaris i equips. Veureu per què existeix Active Directory, com s'organitza, com es crea un domini, com s'hi afegeix un client i com es connecten dos dominis entre ells.</p></div><nav class="toc-inline" aria-label="Contingut del bloc"><h2>Contingut del bloc</h2><ol><li><a href="../../tema-1/bloc-2/#seccio-1">Del grup de treball al domini</a></li><li><a href="../../tema-1/bloc-2/#seccio-2">Estructura lògica: domini, arbre, bosc i UO</a></li><li><a href="../../tema-1/bloc-2/#seccio-3">Estructura física: controladors, llocs i rols</a></li><li><a href="../../tema-1/bloc-2/#seccio-4">Crear un domini</a></li><li><a href="../../tema-1/bloc-2/#seccio-5">Afegir un client al domini</a></li><li><a href="../../tema-1/bloc-2/#seccio-6">Segon controlador, despromoció i relacions de confiança</a></li></ol></nav><section class="sec" id="seccio-1"><h2>1. Del grup de treball al domini</h2><p>En un grup de treball cada ordinador té la seva pròpia llista d'usuaris. Si l'Anna vol entrar a tres ordinadors, ha de tenir tres comptes, amb tres contrasenyes que caldrà canviar per separat. Amb deu equips és molest; amb mil, inviable.</p>
 <p>Un <strong>domini</strong> resol això: hi ha un únic lloc on viuen tots els comptes i tots els equips confien en ell.</p>
 <div class="callout definicio"><p class="ctitle">Definició</p><p><strong>Servei de directori:</strong> base de dades jeràrquica i distribuïda que guarda informació sobre els objectes d'una xarxa (usuaris, equips, grups, impressores...) i permet consultar-la i administrar-la de manera centralitzada.</p>
 <p><strong>Active Directory (AD):</strong> servei de directori de Microsoft. <strong>Domini:</strong> límit d'administració i seguretat d'AD; tots els objectes comparteixen la mateixa base de dades i les mateixes polítiques.</p></div>
@@ -79,7 +80,7 @@
 </tr>
 </tbody>
 </table></div>
-<div class="callout canvi"><p class="ctitle">Què ha canviat respecte dels apunts antics</p><p>Els apunts antics parlen d'un <strong>PDC</strong> (controlador principal) i d'un <strong>BDC</strong> (de còpia). Això és el model de Windows NT 4.0. Des de Windows 2000 tots els controladors de domini són iguals i accepten canvis (replicació <em>multi-mestre</em>). Només queden alguns rols especials que s'anomenen FSMO (els veureu més avall).</p></div>
+<div class="callout canvi"><p class="ctitle">Què ha canviat respecte dels apunts antics</p><p>Els apunts antics parlen d'un <strong>PDC</strong> (controlador principal) i d'un <strong>BDC</strong> (de còpia). Això és el model de Windows NT 4.0. Des de Windows 2000 tots els controladors de domini són iguals i accepten canvis (replicació <em>multi-mestre</em>), llevat dels <strong>RODC</strong>, controladors de només lectura pensats per a oficines poc segures. Només queden alguns rols especials que s'anomenen FSMO (els veureu més avall).</p></div>
 <figure class="diagram"><svg viewBox="0 0 760 320" role="img" aria-label="Autenticació Kerberos: el PC es valida al controlador de domini i rep una entrada per accedir a un servidor"><defs><marker id="m4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path class="ar2" d="M0 0L10 5L0 10z"/></marker></defs>
 <text class="sm" x="385" y="24" text-anchor="middle">📞 Primer, el DNS diu on és el controlador de domini</text>
 <rect class="box" x="20" y="40" width="170" height="86" rx="12"/><text class="ic" x="105" y="76" text-anchor="middle">💻</text><text class="b" x="105" y="110" text-anchor="middle">El teu PC</text>
@@ -95,7 +96,9 @@
 <text x="20" y="272">3  Ensenyes l'entrada al servidor de fitxers, sense tornar a escriure res.</text>
 <text x="20" y="294">4  El servidor et deixa passar o no, segons els permisos que tinguis.</text>
 
-</svg><figcaption>És com una entrada de concert: la compres una vegada i et deixen passar a tot arreu que la vegin.</figcaption></figure></section><section class="sec" id="seccio-2"><h2>2. Estructura lògica: domini, arbre, bosc i UO</h2><h3>Els nivells</h3>
+</svg><figcaption>És com una entrada de concert: la compres una vegada i et deixen passar a tot arreu que la vegin.</figcaption></figure>
+<div class="callout informacio"><p class="ctitle">Informació</p><p><strong>Precisió tècnica.</strong> En realitat Kerberos fa servir dos tiquets: quan us valideu, el controlador de domini (que fa de <em>KDC</em>) us dona un <em>TGT</em>; després, per a cada servei, canvia aquest TGT per un <em>tiquet de servei</em>. És el pas 3 de l'esquema. Els tiquets caduquen (10 hores per defecte) i per això l'hora ha d'estar sincronitzada.</p></div>
+</section><section class="sec" id="seccio-2"><h2>2. Estructura lògica: domini, arbre, bosc i UO</h2><h3>Els nivells</h3>
 <ul>
 <li><strong>Domini:</strong> unitat bàsica. Es nomena amb un nom DNS, per exemple <code>empresa.local</code>.</li>
 <li><strong>Arbre:</strong> conjunt de dominis que comparteixen un espai de noms continu. <code>vendes.empresa.local</code> és un domini fill de <code>empresa.local</code>.</li>
@@ -238,7 +241,7 @@
 <span class="nb">Install-ADDSForest</span> <span class="p">`</span>
   <span class="n">-DomainName</span> <span class="s2">&quot;ad.vidal.cat&quot;</span> <span class="p">`</span>
   <span class="n">-DomainNetbiosName</span> <span class="s2">&quot;VIDAL&quot;</span> <span class="p">`</span>
-  <span class="n">-InstallDns</span> <span class="p">`</span>
+  <span class="n">-InstallDns</span><span class="p">:</span><span class="nv">$true</span> <span class="p">`</span>
   <span class="n">-SafeModeAdministratorPassword</span> <span class="p">(</span><span class="nb">Read-Host</span> <span class="n">-AsSecureString</span> <span class="s2">&quot;Contrasenya DSRM&quot;</span><span class="p">)</span> <span class="p">`</span>
   <span class="n">-Force</span>
 </code></pre></div></figure>
@@ -299,8 +302,8 @@
 </ul></details></div>
 </section><section class="sec" id="seccio-6"><h2>6. Segon controlador, despromoció i relacions de confiança</h2><h3>Afegir un segon controlador de domini</h3>
 <p>Amb un únic DC, si cau, ningú pot iniciar sessió. Per això s'afegeix un segon DC que rep tot el directori per replicació.</p>
-<figure class="code"><figcaption><span class="lang">PowerShell</span><span class="title">Segon DC (al servidor que ja és membre del domini)</span><button class="copy" type="button">Copia</button></figcaption><div class="hl"><pre><code><span class="nb">Install-WindowsFeature</span> <span class="n">AD-Domain-Services</span> <span class="n">-IncludeManagementTools</span>
-<span class="nb">Install-ADDSDomainController</span> <span class="n">-DomainName</span> <span class="s2">&quot;ad.vidal.cat&quot;</span> <span class="n">-InstallDns</span> <span class="p">`</span>
+<figure class="code"><figcaption><span class="lang">PowerShell</span><span class="title">Segon DC (el servidor ha de tenir com a DNS el primer DC)</span><button class="copy" type="button">Copia</button></figcaption><div class="hl"><pre><code><span class="nb">Install-WindowsFeature</span> <span class="n">AD-Domain-Services</span> <span class="n">-IncludeManagementTools</span>
+<span class="nb">Install-ADDSDomainController</span> <span class="n">-DomainName</span> <span class="s2">&quot;ad.vidal.cat&quot;</span> <span class="n">-InstallDns</span><span class="p">:</span><span class="nv">$true</span> <span class="p">`</span>
   <span class="n">-Credential</span> <span class="p">(</span><span class="nb">Get-Credential</span><span class="p">)</span> <span class="p">`</span>
   <span class="n">-SafeModeAdministratorPassword</span> <span class="p">(</span><span class="nb">Read-Host</span> <span class="n">-AsSecureString</span> <span class="s2">&quot;DSRM&quot;</span><span class="p">)</span>
 </code></pre></div></figure>
@@ -311,59 +314,230 @@
 <span class="c"># Si és l&#39;ÚLTIM controlador del domini (destrueix el domini):</span>
 <span class="nb">Uninstall-ADDSDomainController</span> <span class="n">-LastDomainControllerInDomain</span> <span class="n">-RemoveApplicationPartitions</span>
 </code></pre></div></figure>
+<p>Quan acabi, el servidor queda com a membre del domini (o en grup de treball si era l'últim). Per treure també el rol: <code>Uninstall-WindowsFeature AD-Domain-Services -IncludeManagementTools</code>.</p>
 <div class="callout compte"><p class="ctitle">Compte</p><p>Si despromoueu l'<strong>últim</strong> DC, el domini deixa d'existir: els equips ja no podran iniciar sessió, s'eliminen tots els comptes d'usuari i les claus de xifratge. Si hi ha dades xifrades amb EFS, cal desxifrar-les abans o quedaran inaccessibles per sempre.</p></div>
+
+<div class="exercise" data-id="tema-1/bloc-2#1"><header><div class="ex-title"><span>Exercici:</span>Segon controlador i tolerància a errors</div><span class="lvl Avançat">Avançat</span><span class="time">60 min</span><label class="done"><input type="checkbox"> Fet</label></header><div class="ex-body"><p>Afegiu un segon DC al vostre domini. Amb el client unit, apagueu el primer DC i proveu d'iniciar sessió. Expliqueu què passa amb i sense el segon DC encès, i per què.</p></div><details><summary>Veure pistes</summary><ul>
+<li>Windows guarda una còpia de les credencials del darrer inici de sessió (credencials en memòria cau).</li>
+<li>Amb el segon DC encès i el DNS ben configurat, l'inici de sessió és normal.</li>
+<li>Sense cap DC, només es pot entrar amb credencials en memòria cau i no es pot accedir a recursos del domini.</li>
+</ul></details></div>
 <h3>Relacions de confiança</h3>
-<p>Una <strong>relació de confiança</strong> permet que els usuaris d'un domini siguin reconeguts en un altre. Tres idees la descriuen:</p>
+<p>Una <strong>relació de confiança</strong> (<em>trust relationship</em>) és un enllaç lògic entre dos dominis d'Active Directory que permet que els usuaris d'un siguin autenticats pel segon. Així una organització pot compartir carpetes, impressores o aplicacions entre dominis <strong>sense duplicar els comptes d'usuari</strong> a cada servidor.</p>
+<p>Cada relació té dos papers:</p>
 <div class="table-wrap"><table>
 <thead>
 <tr>
-<th>Concepte</th>
-<th>Vol dir</th>
+<th>Paper</th>
+<th>On és</th>
+<th>Què hi ha</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>Direcció</strong></td>
-<td>Si A confia en B, els usuaris de B poden accedir a recursos d'A. La confiança va en un sentit (unidireccional) o en tots dos (bidireccional).</td>
+<td>Domini <strong>de confiança</strong> (<em>trusted</em>)</td>
+<td>El domini dels <strong>usuaris</strong></td>
+<td>Els comptes que volen accedir als recursos</td>
 </tr>
 <tr>
-<td><strong>Transitivitat</strong></td>
-<td>Si A confia en B i B en C, A confia en C? Depèn del tipus.</td>
-</tr>
-<tr>
-<td><strong>Tipus</strong></td>
-<td>Pare-fill (automàtica), arrel d'arbre (automàtica), drecera, extern, de bosc</td>
+<td>Domini que <strong>confia</strong> (<em>trusting</em>)</td>
+<td>El domini dels <strong>recursos</strong></td>
+<td>Carpetes, impressores, servidors i aplicacions</td>
 </tr>
 </tbody>
 </table></div>
+<p>Per validar la identitat a través del límit entre dominis s'usa <strong>Kerberos v5</strong> i, si no és possible (per exemple, quan s'accedeix per IP en lloc de per nom), <strong>NTLM</strong>.</p>
+<h4>Direcció de la confiança</h4>
+<p>La direcció diu <strong>qui pot entrar on</strong>. L'assistent de Windows la descriu sempre des del punt de vista de «aquest domini», que és el de la consola on l'esteu executant.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Direcció</th>
+<th>Qui pot accedir a què</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Bidireccional</strong> (<em>Two-way</em>)</td>
+<td>Els usuaris dels dos dominis poden accedir als recursos de l'altre domini</td>
+</tr>
+<tr>
+<td><strong>Unidireccional d'entrada</strong> (<em>One-way: incoming</em>)</td>
+<td>Els usuaris d'<strong>aquest</strong> domini poden accedir als recursos de l'<strong>altre</strong> domini</td>
+</tr>
+<tr>
+<td><strong>Unidireccional de sortida</strong> (<em>One-way: outgoing</em>)</td>
+<td>Els usuaris de l'<strong>altre</strong> domini poden accedir als recursos d'<strong>aquest</strong> domini</td>
+</tr>
+</tbody>
+</table></div>
+<figure class="diagram"><svg viewBox="0 0 760 240" role="img" aria-label="Direcció de la confiança vista des de la consola on s'executa l'assistent: incoming i outgoing"><defs><marker id="m10" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path class="ar2" d="M0 0L10 5L0 10z"/></marker></defs>
+<rect class="box" x="10" y="10" width="360" height="220" rx="14"/><rect class="box" x="390" y="10" width="360" height="220" rx="14"/>
+<text class="b big" x="190" y="40" text-anchor="middle">One-way: incoming</text><text class="b big" x="570" y="40" text-anchor="middle">One-way: outgoing</text>
+<rect class="hi" x="30" y="66" width="120" height="84" rx="10"/><text class="b" x="90" y="92" text-anchor="middle" style="font-size:13px">Aquest domini</text><text x="90" y="124" text-anchor="middle">👤 usuaris</text>
+<rect class="nw" x="230" y="66" width="120" height="84" rx="10"/><text class="b" x="290" y="92" text-anchor="middle" style="font-size:11.5px">Domini especificat</text><text x="290" y="124" text-anchor="middle">📁 recursos</text>
+<path class="ln2" d="M152 108 L228 108" marker-end="url(#m10)"/>
+<text class="sm" x="190" y="182" text-anchor="middle">Els usuaris d'aquest domini hi accedeixen</text><text class="sm" x="190" y="200" text-anchor="middle">als recursos de l'altre domini</text>
+<rect class="hi" x="410" y="66" width="120" height="84" rx="10"/><text class="b" x="470" y="92" text-anchor="middle" style="font-size:13px">Aquest domini</text><text x="470" y="124" text-anchor="middle">📁 recursos</text>
+<rect class="nw" x="610" y="66" width="120" height="84" rx="10"/><text class="b" x="670" y="92" text-anchor="middle" style="font-size:11.5px">Domini especificat</text><text x="670" y="124" text-anchor="middle">👤 usuaris</text>
+<path class="ln2" d="M608 108 L532 108" marker-end="url(#m10)"/>
+<text class="sm" x="570" y="182" text-anchor="middle">Els usuaris de l'altre domini hi accedeixen</text><text class="sm" x="570" y="200" text-anchor="middle">als recursos d'aquest domini</text>
+</svg><figcaption>«Aquest domini» és sempre el de la consola on executeu l'assistent. La fletxa va de qui té els usuaris cap a qui té els recursos.</figcaption></figure>
+<div class="callout compte"><p class="ctitle">Compte</p><p><strong>La confusió més freqüent.</strong> Els noms <em>incoming</em> i <em>outgoing</em> es refereixen a la <strong>confiança</strong>, no als usuaris. <em>Outgoing</em>: la confiança «surt» del vostre domini cap a l'altre (vosaltres confieu en ells), i per tant <strong>els seus</strong> usuaris poden entrar als <strong>vostres</strong> recursos. <em>Incoming</em>: la confiança «us arriba» (ells confien en vosaltres), i per tant <strong>els vostres</strong> usuaris poden entrar als <strong>seus</strong> recursos. Abans de fer cada pas de la pràctica, dibuixeu-vos qui té els usuaris i qui té els recursos.</p></div>
 <figure class="diagram"><svg viewBox="0 0 760 210" role="img" aria-label="Relació de confiança unidireccional: A confia en B i els usuaris de B poden accedir als recursos d'A"><defs><marker id="m6" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path class="ar2" d="M0 0L10 5L0 10z"/></marker></defs>
 <rect class="hi" x="20" y="50" width="240" height="140" rx="14"/><text class="ic" x="140" y="96" text-anchor="middle">🏢</text><text class="b" x="140" y="128" text-anchor="middle">Domini A</text><text class="sm" x="140" y="150" text-anchor="middle">📁 recursos: carpetes, impressores</text>
 <rect class="nw" x="500" y="50" width="240" height="140" rx="14"/><text class="ic" x="620" y="96" text-anchor="middle">🏫</text><text class="b" x="620" y="128" text-anchor="middle">Domini B</text><text class="sm" x="620" y="150" text-anchor="middle">👤 usuaris del departament</text>
 <path class="ln2 dash" d="M262 80 L498 80" marker-end="url(#m6)"/><text class="b" x="380" y="70" text-anchor="middle">A confia en B</text>
 <path class="ln2" d="M498 150 L262 150" marker-end="url(#m6)"/><text class="b" x="380" y="172" text-anchor="middle">accés dels usuaris de B</text>
 </svg><figcaption>Truc per no liar-se: la fletxa de confiança i la d'accés van en sentits contraris.</figcaption></figure>
-<div class="callout informacio"><p class="ctitle">Informació</p><p>En un <strong>sentit únic d'entrada</strong> (<em>incoming</em>) el vostre domini és el «confiat»: els vostres usuaris poden accedir a recursos d'un altre domini. En una <strong>de sortida</strong> (<em>outgoing</em>) el vostre domini és el que «confia»: els usuaris de l'altre poden accedir als vostres recursos. Doneu-li voltes al cap amb un exemple abans d'assajar-ho.</p></div>
-<p>Perquè dos dominis independents es puguin veure, cada DNS ha de saber resoldre l'altre domini (un <strong>reenviador condicional</strong>), i els dos servidors han de tenir l'hora sincronitzada.</p>
-<figure class="code"><figcaption><span class="lang">PowerShell</span><span class="title">Confiança bidireccional entre dos dominis</span><button class="copy" type="button">Copia</button></figcaption><div class="hl"><pre><code><span class="c"># Al DNS d&#39;un domini: reenviament cap al DNS de l&#39;altre</span>
-<span class="nb">Add-DnsServerConditionalForwarderZone</span> <span class="n">-Name</span> <span class="s2">&quot;altra.local&quot;</span> <span class="n">-MasterServers</span> <span class="n">192</span><span class="p">.</span><span class="n">168</span><span class="p">.</span><span class="n">10</span><span class="p">.</span><span class="n">20</span>
 
-<span class="c"># Crear la confiança bidireccional (demana credencials dels dos dominis)</span>
-<span class="n">netdom</span> <span class="n">trust</span> <span class="n">ad</span><span class="p">.</span><span class="n">vidal</span><span class="p">.</span><span class="nb">cat </span><span class="p">/</span><span class="n">domain</span><span class="p">:</span><span class="n">altra</span><span class="p">.</span><span class="n">local</span> <span class="p">/</span><span class="n">add</span> <span class="p">/</span><span class="n">twoway</span> <span class="p">`</span>
-   <span class="p">/</span><span class="n">UserO</span><span class="p">:</span><span class="n">VIDAL</span><span class="p">\</span><span class="n">Administrator</span> <span class="p">/</span><span class="n">PasswordO</span><span class="p">:*</span> <span class="p">/</span><span class="n">UserD</span><span class="p">:</span><span class="n">ALTRA</span><span class="p">\</span><span class="n">Administrator</span> <span class="p">/</span><span class="n">PasswordD</span><span class="p">:*</span>
+<h4>Transitivitat i tipus</h4>
+<ul>
+<li><strong>Transitiva:</strong> la confiança s'estén als dominis relacionats. Si A confia en B i B confia en C, A confia en C.</li>
+<li><strong>No transitiva:</strong> queda limitada als dos dominis que l'han creada; no arriba a cap altre domini.</li>
+</ul>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Tipus</th>
+<th>Entre quins dominis</th>
+<th>Transitiva</th>
+<th>Quan s'usa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pare-fill</td>
+<td>Un domini i el seu fill</td>
+<td>Sí</td>
+<td>Es crea <strong>automàticament</strong> en afegir un domini fill</td>
+</tr>
+<tr>
+<td>Arrel d'arbre</td>
+<td>Arrels de dos arbres del mateix bosc</td>
+<td>Sí</td>
+<td>Es crea <strong>automàticament</strong></td>
+</tr>
+<tr>
+<td>Drecera (<em>shortcut</em>)</td>
+<td>Dos dominis del mateix bosc, en arbres diferents</td>
+<td>Sí</td>
+<td>Accelera l'autenticació entre branques llunyanes</td>
+</tr>
+<tr>
+<td><strong>Externa</strong></td>
+<td>Dos dominis de boscos diferents</td>
+<td><strong>No</strong></td>
+<td>La que fareu a l'aula: dominis independents</td>
+</tr>
+<tr>
+<td><strong>De bosc</strong></td>
+<td>Les arrels de dos boscos</td>
+<td>Sí, entre tots els dominis dels dos boscos</td>
+<td>Fusions d'empreses</td>
+</tr>
+<tr>
+<td>De reialme (<em>realm</em>)</td>
+<td>Un domini AD i un sistema Kerberos no Windows</td>
+<td>Configurable</td>
+<td>Integració amb Unix</td>
+</tr>
+</tbody>
+</table></div>
+<h4>Requisits previs</h4>
+<p>Abans d'obrir l'assistent, comproveu aquests tres punts a <strong>tots dos</strong> servidors. Si falla algun, la confiança no es podrà crear o no funcionarà.</p>
+<ol>
+<li><strong>Connectivitat.</strong> Els dos servidors han d'estar a la mateixa xarxa virtual (a l'aula, la mateixa VLAN d'IsardVDI) i s'han de poder fer <code>ping</code> (recordeu la regla ICMP del tallafocs).</li>
+<li><strong>Resolució DNS en els dos sentits (crític).</strong> Cada servidor ha de saber resoldre el domini de l'altre. El mètode correcte és un <strong>reenviador condicional</strong> al DNS de cada domini. A un laboratori també funciona posar la IP de l'altre servidor com a DNS secundari de la targeta, però no s'ha de fer en producció.</li>
+<li><strong>Hora sincronitzada.</strong> Kerberos no tolera més de 5 minuts de diferència entre els dos servidors.</li>
+</ol>
+<figure class="code"><figcaption><span class="lang">PowerShell</span><span class="title">Preparar i comprovar els requisits</span><button class="copy" type="button">Copia</button></figcaption><div class="hl"><pre><code><span class="c"># 1) Reenviador condicional cap al DNS de l&#39;altre domini</span>
+<span class="nb">Add-DnsServerConditionalForwarderZone</span> <span class="n">-Name</span> <span class="s2">&quot;domini2.local&quot;</span> <span class="n">-MasterServers</span> <span class="n">192</span><span class="p">.</span><span class="n">168</span><span class="p">.</span><span class="n">10</span><span class="p">.</span><span class="n">20</span>
 
-<span class="c"># Verificar</span>
-<span class="n">netdom</span> <span class="n">trust</span> <span class="n">ad</span><span class="p">.</span><span class="n">vidal</span><span class="p">.</span><span class="nb">cat </span><span class="p">/</span><span class="n">domain</span><span class="p">:</span><span class="n">altra</span><span class="p">.</span><span class="n">local</span> <span class="p">/</span><span class="n">verify</span>
+<span class="c"># 2) Comprovar que es resol el domini de l&#39;altre i que arribem al seu servidor</span>
+<span class="nb">Resolve-DnsName</span> <span class="n">domini2</span><span class="p">.</span><span class="n">local</span>
+<span class="nb">Test-NetConnection</span> <span class="n">192</span><span class="p">.</span><span class="n">168</span><span class="p">.</span><span class="n">10</span><span class="p">.</span><span class="n">20</span>
+
+<span class="c"># 3) Diferència d&#39;hora respecte de l&#39;altre servidor</span>
+<span class="n">w32tm</span> <span class="p">/</span><span class="n">stripchart</span> <span class="p">/</span><span class="n">computer</span><span class="p">:</span><span class="n">192</span><span class="p">.</span><span class="n">168</span><span class="p">.</span><span class="n">10</span><span class="p">.</span><span class="n">20</span> <span class="p">/</span><span class="n">samples</span><span class="p">:</span><span class="n">3</span> <span class="p">/</span><span class="n">dataonly</span>
 </code></pre></div></figure>
-<p>També es pot fer amb l'eina gràfica <em>Dominis i confiances d'Active Directory</em> (<code>domain.msc</code>), que és el que fareu a la pràctica.</p>
-<div class="exercise" data-id="tema-1/bloc-2#1"><header><div class="ex-title"><span>Exercici:</span>Segon controlador i tolerància a errors</div><span class="lvl Avançat">Avançat</span><span class="time">60 min</span><label class="done"><input type="checkbox"> Fet</label></header><div class="ex-body"><p>Afegiu un segon DC al vostre domini. Amb el client unit, apagueu el primer DC i proveu d'iniciar sessió. Expliqueu què passa amb i sense el segon DC encès, i per què.</p></div><details><summary>Veure pistes</summary><ul>
-<li>Windows guarda una còpia de les credencials del darrer inici de sessió (credencials en memòria cau).</li>
-<li>Amb el segon DC encès i el DNS ben configurat, l'inici de sessió és normal.</li>
-<li>Sense cap DC, només es pot entrar amb credencials en memòria cau i no es pot accedir a recursos del domini.</li>
-</ul></details></div>
-
-<div class="exercise" data-id="tema-1/bloc-2#2"><header><div class="ex-title"><span>Exercici:</span>Relacions de confiança amb un company</div><span class="lvl Avançat">Avançat</span><span class="time">60 min</span><label class="done"><input type="checkbox"> Fet</label></header><div class="ex-body"><p>Amb el domini d'un company creeu una relació de confiança bidireccional. Modifiqueu-la després a unidireccional d'entrada. Finalment, elimineu-la. Documenteu cada pas amb captures i digueu, a cada cas, quins usuaris poden accedir a quins recursos.</p></div><details><summary>Veure pistes</summary><ul>
-<li>Prepareu primer els reenviadors DNS entre els dos dominis.</li>
-<li>Proveu la confiança amb el botó <em>Valida</em> de <code>domain.msc</code>.</li>
+<h4>Pas a pas amb l'assistent gràfic</h4>
+<p><strong>Pas 1. Crear una confiança bidireccional</strong></p>
+<ol>
+<li>Al <em>Gestor del servidor</em> obriu <em>Eines → Dominis i confiances d'Active Directory</em> (<code>domain.msc</code>).</li>
+<li>Feu clic dret sobre el nom del vostre domini → <em>Propietats</em> → pestanya <strong>Trusts</strong> (<em>Confiances</em>) → <strong>New Trust...</strong> (<em>Nova confiança</em>).</li>
+<li>Escriviu el nom DNS (FQDN) del domini del company, per exemple <code>domini2.local</code>.</li>
+<li>Trieu el tipus: <strong>External trust</strong> (dominis independents) o <strong>Forest trust</strong> (si els dos dominis són arrel del seu bosc). A la pràctica és el més habitual l'externa.</li>
+<li>Trieu la direcció: <strong>Two-way</strong>.</li>
+<li>A <em>Sides of Trust</em> trieu <strong>Both this domain and the specified domain</strong>. Us demanarà les credencials d'administrador del domini del company. (Si trieu <em>This domain only</em>, el vostre company haurà de crear l'altra banda amb la <strong>mateixa contrasenya de confiança</strong>.)</li>
+<li>A <em>Authentication Level</em> trieu <strong>Domain-wide</strong> (els usuaris de l'altre domini poden autenticar-se a qualsevol recurs) o <strong>Selective</strong> (només als servidors on es concedeixi el permís explícit <em>Allowed to authenticate</em>). A la pràctica: <em>Domain-wide</em>.</li>
+<li>Confirmeu les confiances d'entrada i de sortida (<em>Yes, confirm</em>) i finalitzeu.</li>
+</ol>
+<p><strong>Pas 2. Passar-la a unidireccional d'entrada.</strong> La direcció d'una confiança no es pot editar: cal <strong>eliminar-la i tornar-la a crear</strong>. Torneu a la pestanya <em>Trusts</em>, seleccioneu-la i premeu <strong>Remove</strong>; creeu-ne una de nova amb els mateixos passos, però al pas 5 trieu <strong>One-way: incoming</strong>. A partir d'ara només els usuaris del <strong>vostre</strong> domini poden accedir als recursos del domini del company.</p>
+<p><strong>Pas 3. Esborrar-la.</strong> A <em>Trusts</em>, seleccioneu la relació i premeu <strong>Remove</strong>. Trieu eliminar-la <strong>tant del domini local com del remot</strong> (requereix les credencials de l'altre domini). La llista de la pestanya ha de quedar buida.</p>
+<h4>Comprovar que funciona</h4>
+<p>Crear la confiança no dona permisos per si sola: només fa que l'altre domini sigui <strong>reconegut</strong>. Per demostrar que un usuari de l'altre domini hi accedeix, cal donar-li permisos al recurs.</p>
+<figure class="code"><figcaption><span class="lang">PowerShell</span><span class="title">Compartir una carpeta amb usuaris de l&#x27;altre domini (al domini que té els recursos)</span><button class="copy" type="button">Copia</button></figcaption><div class="hl"><pre><code><span class="nb">New-Item</span> <span class="n">-ItemType</span> <span class="n">Directory</span> <span class="n">-Path</span> <span class="n">C</span><span class="p">:\</span><span class="n">Comparticions</span><span class="p">\</span><span class="n">Intercanvi</span> <span class="n">-Force</span>
+<span class="n">icacls</span> <span class="n">C</span><span class="p">:\</span><span class="n">Comparticions</span><span class="p">\</span><span class="n">Intercanvi</span> <span class="p">/</span><span class="n">grant</span> <span class="s2">&quot;DOMINI2\Domain Users:(OI)(CI)R&quot;</span>
+<span class="nb">New-SmbShare</span> <span class="n">-Name</span> <span class="n">Intercanvi</span> <span class="n">-Path</span> <span class="n">C</span><span class="p">:\</span><span class="n">Comparticions</span><span class="p">\</span><span class="n">Intercanvi</span> <span class="n">-ReadAccess</span> <span class="s2">&quot;DOMINI2\Domain Users&quot;</span>
+</code></pre></div></figure>
+<p>Després, des d'un equip del <strong>domini d'usuaris</strong> (inici de sessió amb un usuari de <code>DOMINI2</code>), obriu <code>\\servidor1.domini1.local\Intercanvi</code>. En un entorn real no es donen permisos a <em>Domain Users</em> de l'altre domini, sinó que es fa servir la regla AGDLP: el grup global de l'altre domini entra en un grup de domini local d'aquest, que rep el permís.</p>
+<figure class="code"><figcaption><span class="lang">PowerShell</span><span class="title">Verificar l&#x27;estat de les confiances</span><button class="copy" type="button">Copia</button></figcaption><div class="hl"><pre><code><span class="nb">Get-ADTrust</span> <span class="n">-Filter</span> <span class="p">*</span>                                   <span class="c"># totes les confiances del domini</span>
+<span class="nb">Get-ADTrust</span> <span class="n">-Filter</span> <span class="p">*</span> <span class="p">|</span> <span class="nb">Select-Object</span> <span class="n">Name</span><span class="p">,</span> <span class="n">Direction</span><span class="p">,</span> <span class="n">TrustType</span><span class="p">,</span> <span class="n">IntraForest</span>
+<span class="n">nltest</span> <span class="p">/</span><span class="n">domain_trusts</span>                                   <span class="c"># llista de dominis de confiança</span>
+<span class="n">nltest</span> <span class="p">/</span><span class="n">sc_verify</span><span class="p">:</span><span class="n">domini2</span><span class="p">.</span><span class="n">local</span>                         <span class="c"># valida el canal segur</span>
+<span class="n">netdom</span> <span class="n">trust</span> <span class="n">domini1</span><span class="p">.</span><span class="n">local</span> <span class="p">/</span><span class="n">d</span><span class="p">:</span><span class="n">domini2</span><span class="p">.</span><span class="n">local</span> <span class="p">/</span><span class="n">verify</span>     <span class="c"># valida la confiança</span>
+</code></pre></div></figure>
+<p>A <code>Direction</code> veureu <code>BiDirectional</code>, <code>Inbound</code> (d'entrada) o <code>Outbound</code> (de sortida). També es poden crear i esborrar amb ordres: <code>netdom trust ... /add</code> (el veieu més amunt) i <code>netdom trust ... /remove</code>.</p>
+<h4>Si no funciona</h4>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Símptoma</th>
+<th>Causa probable</th>
+<th>Què fer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>L'assistent diu que no troba el domini</td>
+<td>El DNS no resol el domini de l'altre</td>
+<td>Reviseu el reenviador condicional i proveu <code>Resolve-DnsName</code></td>
+</tr>
+<tr>
+<td>Errors d'autenticació o de Kerberos</td>
+<td>Hora desincronitzada (més de 5 min)</td>
+<td>Sincronitzeu amb <code>w32tm /resync</code></td>
+</tr>
+<tr>
+<td>«El servidor RPC no està disponible»</td>
+<td>El tallafocs bloqueja ports d'AD (53, 88, 135, 389, 445)</td>
+<td>Comproveu-los amb <code>Test-NetConnection -Port</code></td>
+</tr>
+<tr>
+<td>La confiança existeix però l'usuari no accedeix al recurs</td>
+<td>Falten permisos de compartició i NTFS, o hi ha autenticació selectiva</td>
+<td>Doneu permisos a un grup de l'altre domini; reviseu el nivell d'autenticació</td>
+</tr>
+<tr>
+<td>Falla la validació d'una confiança creada per bandes</td>
+<td>Les dues bandes tenen contrasenyes de confiança diferents</td>
+<td>Elimineu-la i torneu-la a crear amb la mateixa contrasenya</td>
+</tr>
+</tbody>
+</table></div>
+<div class="exercise" data-id="tema-1/bloc-2#2"><header><div class="ex-title"><span>Exercici:</span>Relacions de confiança amb un company</div><span class="lvl Avançat">Avançat</span><span class="time">90 min</span><label class="done"><input type="checkbox"> Fet</label></header><div class="ex-body"><p>Per parelles, cada un amb el seu domini en un servidor Windows Server 2022. (1) Prepareu els requisits previs (xarxa, DNS i hora). (2) Creeu una confiança <strong>bidireccional</strong>. (3) Convertiu-la en <strong>unidireccional d'entrada</strong>. (4) Elimineu-la.</p>
+<p><strong>Lliurament</strong> (document PDF amb aquestes captures):</p>
+<ul>
+<li>La configuració de xarxa i la prova de <code>ping</code> / <code>Resolve-DnsName</code> entre els dos servidors.</li>
+<li>La pestanya <em>Trusts</em> amb la relació <strong>Two-way</strong> creada.</li>
+<li>La comprovació d'accés a un recurs compartit des d'un usuari de l'altre domini.</li>
+<li>La modificació a relació <strong>One-way: incoming</strong>, i una prova que demostri qui pot i qui no pot accedir.</li>
+<li>La pestanya <em>Trusts</em> buida un cop esborrada.</li>
+</ul></div><details><summary>Veure pistes</summary><ul>
+<li>Prepareu primer els reenviadors DNS entre els dos dominis, en els dos sentits.</li>
+<li>Proveu la confiança amb el botó <em>Validate</em> de la pestanya <em>Trusts</em> o amb <code>netdom trust ... /verify</code>.</li>
+<li>Abans del pas 3, decidiu amb el company quin dels dos domini tindrà els usuaris i quin els recursos.</li>
 </ul></details></div>
 </section><p class="ex-progress"></p><div class="pager"><a class="prev" rel="prev" href="../../tema-1/bloc-1/"><small>← Anterior</small>1.1 Instal·lació de Windows Server</a><a class="next" rel="next" href="../../tema-1/bloc-3/"><small>Següent →</small>1.3 Usuaris, grups, perfils i directives de grup</a></div></div></div>
 <footer class="site-footer">Departament d'Informàtica · Institut F. Vidal i Barraquer · Tarragona · Curs 2025-2026. Basat en el curs de Moodle del mòdul MP0224 i la programació del departament.</footer>

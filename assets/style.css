@@ -285,3 +285,10 @@ figure.diagram svg .dash { stroke-dasharray: 6 5; }
 .nav-unit .uname em { font-weight: 400; font-style: normal; font-size: .82rem; color: var(--muted); }
 .nav-unit .soon-item { display: block; padding: 4px 8px; margin: 1px 0; color: var(--muted); line-height: 1.35; }
 @media (max-width: 560px) { .block-list .row { grid-template-columns: 2.6rem 1fr; } }
+figure.diagram svg .t1 { font-size: 18px; }
+figure.diagram svg .t2 { font-size: 26px; font-weight: 700; }
+figure.diagram svg .t3 { font-size: 17px; }
+figure.diagram svg .hd { font-size: 32px; font-weight: 700; }
+figure.diagram svg .cmd { font-family: var(--mono); font-size: 15px; }
+figure.diagram svg .wr { fill: var(--c-imp-bg); stroke: var(--c-imp); stroke-width: 1.5; }
+figure.diagram svg .sm.t3 { font-size: 17px; }

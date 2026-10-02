@@ -44,6 +44,7 @@
 <li><a data-sec="seccio-3" href="../../tema-1/bloc-3/#seccio-3">3. Grups</a></li>
 <li><a data-sec="seccio-4" href="../../tema-1/bloc-3/#seccio-4">4. Perfils d&#x27;usuari</a></li>
 <li><a data-sec="seccio-5" href="../../tema-1/bloc-3/#seccio-5">5. Directives de grup (GPO)</a></li>
+<li><a data-sec="seccio-6" href="../../tema-1/bloc-3/#seccio-6">6. Resum del tema i autoavaluació</a></li>
 </ul></li>
 </ul></div>
 <div class="nav-unit soon" style="--u:#b04fc0"><span class="uname"><span class="dot"></span><span>Tema 2. Sistemes operatius lliures en xarxa <em>(aviat)</em></span></span><ul><li><span class="soon-item">2.1 Instal·lació i explotació d&#x27;Ubuntu Server</span></li><li><span class="soon-item">2.2 Usuaris, grups i permisos a Linux</span></li><li><span class="soon-item">2.3 Monitoratge, serveis i tasques automàtiques</span></li><li><span class="soon-item">2.4 Serveis de directori amb OpenLDAP</span></li><li><span class="soon-item">2.5 Autenticació d&#x27;usuaris: NSS, PAM i SSSD</span></li></ul></div>
@@ -52,7 +53,7 @@
 <div class="nav-extra"><span style="font-size:.82rem;color:var(--muted)">Departament d'Informàtica<br>Institut F. Vidal i Barraquer · Tarragona<br>Curs 2025-2026 · v1.0</span></div>
 </aside>
 <main id="main-content">
-<div class="page" data-page="tema-1/bloc-3" data-title="Bloc 1.3: Usuaris, grups, perfils i directives de grup | Sistemes operatius en xarxa" data-unit="1" data-bloc="3" data-nunits="4" data-nblocs="3"><div class="content"><nav class="crumbs" aria-label="Ruta"><a data-page="index" href="../../">Inici</a> &gt; <a data-page="tema-1" href="../../tema-1/">Tema 1: Sistemes operatius propietaris en xarxa</a> &gt; Bloc 1.3: Usuaris, grups, perfils i directives de grup</nav><header class="block-head" style="--u:#7a4fd1"><h1>Bloc 1.3: Usuaris, grups, perfils i directives de grup</h1><p class="lead">Comptes d&#x27;usuari i d&#x27;equip, plantilles, àmbits de grup, AGDLP, perfils mòbils i obligatoris, GPO.</p><div class="chips"><span class="chip unit">Tema 1</span><span class="chip">RA2</span><span class="chip">14 h</span></div></header><details class="ra-panel"><summary>Resultats d'aprenentatge i criteris d'avaluació d'aquest bloc</summary><div class="inner"><h4>RA2. Gestiona usuaris i grups de sistemes operatius en xarxa, interpretant especificacions i aplicant eines del sistema.</h4><ul><li><span class="num">2.1</span>Configura i gestiona comptes d&#x27;usuari.</li><li><span class="num">2.2</span>Configura i gestiona perfils d&#x27;usuari.</li><li><span class="num">2.3</span>Configura i gestiona comptes d&#x27;equip.</li><li><span class="num">2.4</span>Distingeix el propòsit dels grups, els seus tipus i àmbits.</li><li><span class="num">2.5</span>Configura i gestiona grups.</li><li><span class="num">2.6</span>Gestiona la pertinença d&#x27;usuaris a grups.</li><li><span class="num">2.7</span>Identifica les característiques d&#x27;usuaris i grups predeterminats i especials.</li><li><span class="num">2.8</span>Planifica perfils mòbils d&#x27;usuaris.</li><li><span class="num">2.9</span>Utilitza eines per a l&#x27;administració d&#x27;usuaris i grups, incloses en el sistema operatiu en xarxa.</li></ul></div></details><div class="intro"><p>Un domini buit no serveix de res: cal poblar-lo amb les persones i els equips de l'empresa i decidir què pot fer cadascú. En aquest bloc aprendreu a crear i ordenar comptes, a gestionar grups amb criteri, a fer que l'entorn d'un usuari el segueixi per tota la xarxa (perfils mòbils) i a governar-ho tot amb directives de grup.</p></div><nav class="toc-inline" aria-label="Contingut del bloc"><h2>Contingut del bloc</h2><ol><li><a href="../../tema-1/bloc-3/#seccio-1">Comptes i identitats predeterminades</a></li><li><a href="../../tema-1/bloc-3/#seccio-2">Unitats organitzatives, usuaris i plantilles</a></li><li><a href="../../tema-1/bloc-3/#seccio-3">Grups</a></li><li><a href="../../tema-1/bloc-3/#seccio-4">Perfils d&#x27;usuari</a></li><li><a href="../../tema-1/bloc-3/#seccio-5">Directives de grup (GPO)</a></li></ol></nav><section class="sec" id="seccio-1"><h2>1. Comptes i identitats predeterminades</h2><h3>Comptes locals i comptes de domini</h3>
+<div class="page" data-page="tema-1/bloc-3" data-title="Bloc 1.3: Usuaris, grups, perfils i directives de grup | Sistemes operatius en xarxa" data-unit="1" data-bloc="3" data-nunits="4" data-nblocs="3"><div class="content"><nav class="crumbs" aria-label="Ruta"><a data-page="index" href="../../">Inici</a> &gt; <a data-page="tema-1" href="../../tema-1/">Tema 1: Sistemes operatius propietaris en xarxa</a> &gt; Bloc 1.3: Usuaris, grups, perfils i directives de grup</nav><header class="block-head" style="--u:#7a4fd1"><h1>Bloc 1.3: Usuaris, grups, perfils i directives de grup</h1><p class="lead">Comptes d&#x27;usuari i d&#x27;equip, plantilles, àmbits de grup, AGDLP, perfils mòbils i obligatoris, GPO.</p><div class="chips"><span class="chip unit">Tema 1</span><span class="chip">RA2</span><span class="chip">14 h</span></div></header><details class="ra-panel"><summary>Resultats d'aprenentatge i criteris d'avaluació d'aquest bloc</summary><div class="inner"><h4>RA2. Gestiona usuaris i grups de sistemes operatius en xarxa, interpretant especificacions i aplicant eines del sistema.</h4><ul><li><span class="num">2.1</span>Configura i gestiona comptes d&#x27;usuari.</li><li><span class="num">2.2</span>Configura i gestiona perfils d&#x27;usuari.</li><li><span class="num">2.3</span>Configura i gestiona comptes d&#x27;equip.</li><li><span class="num">2.4</span>Distingeix el propòsit dels grups, els seus tipus i àmbits.</li><li><span class="num">2.5</span>Configura i gestiona grups.</li><li><span class="num">2.6</span>Gestiona la pertinença d&#x27;usuaris a grups.</li><li><span class="num">2.7</span>Identifica les característiques d&#x27;usuaris i grups predeterminats i especials.</li><li><span class="num">2.8</span>Planifica perfils mòbils d&#x27;usuaris.</li><li><span class="num">2.9</span>Utilitza eines per a l&#x27;administració d&#x27;usuaris i grups, incloses en el sistema operatiu en xarxa.</li></ul></div></details><div class="intro"><p>Un domini buit no serveix de res: cal poblar-lo amb les persones i els equips de l'empresa i decidir què pot fer cadascú. En aquest bloc aprendreu a crear i ordenar comptes, a gestionar grups amb criteri, a fer que l'entorn d'un usuari el segueixi per tota la xarxa (perfils mòbils) i a governar-ho tot amb directives de grup.</p></div><nav class="toc-inline" aria-label="Contingut del bloc"><h2>Contingut del bloc</h2><ol><li><a href="../../tema-1/bloc-3/#seccio-1">Comptes i identitats predeterminades</a></li><li><a href="../../tema-1/bloc-3/#seccio-2">Unitats organitzatives, usuaris i plantilles</a></li><li><a href="../../tema-1/bloc-3/#seccio-3">Grups</a></li><li><a href="../../tema-1/bloc-3/#seccio-4">Perfils d&#x27;usuari</a></li><li><a href="../../tema-1/bloc-3/#seccio-5">Directives de grup (GPO)</a></li><li><a href="../../tema-1/bloc-3/#seccio-6">Resum del tema i autoavaluació</a></li></ol></nav><section class="sec" id="seccio-1"><h2>1. Comptes i identitats predeterminades</h2><h3>Comptes locals i comptes de domini</h3>
 <div class="table-wrap"><table>
 <thead>
 <tr>
@@ -84,7 +85,7 @@
 </tr>
 </tbody>
 </table></div>
-<p>Un mateix compte de domini té dos noms: el nom d'inici de sessió <em>pre-Windows 2000</em> (<code>VIDAL\anna</code>, atribut <code>sAMAccountName</code>) i el <strong>UPN</strong> (<code>anna@ad.vidal.cat</code>).</p>
+<p>Un mateix compte de domini té dos noms: el nom d'inici de sessió <em>pre-Windows 2000</em> (<code>VIDAL\anna</code>, atribut <code>sAMAccountName</code>) i el <strong>UPN</strong> (<code>anna@ad.vidal.cat</code>). El nom pre-Windows 2000 té un màxim de <strong>20 caràcters</strong>.</p>
 <h3>Comptes d'equip</h3>
 <p>Cada equip unit a un domini té el seu propi <strong>compte d'equip</strong>. L'equip s'hi autentica amb una contrasenya secreta que canvia sola cada 30 dies. Si no es pot comunicar amb el domini «perquè la relació de confiança s'ha trencat», es repara amb:</p>
 <figure class="code"><figcaption><span class="lang">PowerShell</span><span class="title">Reparar el canal segur d&#x27;un equip</span><button class="copy" type="button">Copia</button></figcaption><div class="hl"><pre><code><span class="nb">Test-ComputerSecureChannel</span> <span class="n">-Repair</span> <span class="n">-Credential</span> <span class="s2">&quot;VIDAL\Administrator&quot;</span>
@@ -144,7 +145,7 @@
 <tbody>
 <tr>
 <td>Everyone</td>
-<td>Tothom, autenticat o no</td>
+<td>Tots els usuaris autenticats i els convidats (en sistemes antics, també els anònims)</td>
 </tr>
 <tr>
 <td>Authenticated Users</td>
@@ -164,7 +165,7 @@
 </tr>
 </tbody>
 </table></div>
-<div class="callout important"><p class="ctitle">Important</p><p>Feu servir <strong>Authenticated Users</strong> en lloc d'<strong>Everyone</strong> sempre que pugueu. Everyone inclou usuaris anònims i, en sistemes vells, això era una porta oberta.</p></div>
+<div class="callout important"><p class="ctitle">Important</p><p>Feu servir <strong>Authenticated Users</strong> en lloc d'<strong>Everyone</strong> sempre que pugueu: és més precís (només qui s'ha identificat) i evita sorpreses amb comptes de convidat i, en sistemes antics, amb accessos anònims.</p></div>
 </section><section class="sec" id="seccio-2"><h2>2. Unitats organitzatives, usuaris i plantilles</h2><h3>Dissenyar les UO</h3>
 <p>Abans de crear res, dibuixeu l'esquema. Una estructura freqüent és separar per <strong>tipus d'objecte</strong> primer i per <strong>departament</strong> després:</p>
 <figure class="code"><figcaption><span class="lang">Text</span><button class="copy" type="button">Copia</button></figcaption><div class="hl"><pre><code>ad.vidal.cat
@@ -192,7 +193,8 @@
   <span class="n">-AccountPassword</span> <span class="nv">$pw</span> <span class="n">-Enabled</span> <span class="nv">$true</span> <span class="n">-ChangePasswordAtLogon</span> <span class="nv">$true</span>
 </code></pre></div></figure>
 <p>Per crear un grup sencer d'un cop, feu un fitxer CSV i recorreu-lo:</p>
-<figure class="code"><figcaption><span class="lang">PowerShell</span><span class="title">Alta massiva des d&#x27;un CSV</span><button class="copy" type="button">Copia</button></figcaption><div class="hl"><pre><code><span class="c"># usuaris.csv:  Nom;Cognom;Login;UO</span>
+<figure class="code"><figcaption><span class="lang">PowerShell</span><span class="title">Alta massiva des d&#x27;un CSV</span><button class="copy" type="button">Copia</button></figcaption><div class="hl"><pre><code><span class="c"># Cal haver definit abans $pw (Read-Host -AsSecureString)</span>
+<span class="c"># usuaris.csv:  Nom;Cognom;Login;UO</span>
 <span class="nb">Import-Csv</span> <span class="p">.\</span><span class="n">usuaris</span><span class="p">.</span><span class="n">csv</span> <span class="n">-Delimiter</span> <span class="s2">&quot;;&quot;</span> <span class="p">|</span> <span class="k">ForEach</span><span class="n">-Object</span> <span class="p">{</span>
   <span class="nb">New-ADUser</span> <span class="n">-Name</span> <span class="s2">&quot;</span><span class="p">$(</span><span class="nv">$_</span><span class="p">.</span><span class="n">Nom</span><span class="p">)</span><span class="s2"> </span><span class="p">$(</span><span class="nv">$_</span><span class="p">.</span><span class="n">Cognom</span><span class="p">)</span><span class="s2">&quot;</span> <span class="n">-GivenName</span> <span class="nv">$_</span><span class="p">.</span><span class="n">Nom</span> <span class="n">-Surname</span> <span class="nv">$_</span><span class="p">.</span><span class="n">Cognom</span> <span class="p">`</span>
     <span class="n">-SamAccountName</span> <span class="nv">$_</span><span class="p">.</span><span class="n">Login</span> <span class="n">-Path</span> <span class="nv">$_</span><span class="p">.</span><span class="n">UO</span> <span class="n">-AccountPassword</span> <span class="nv">$pw</span> <span class="p">`</span>
@@ -242,7 +244,7 @@
 <span class="nb">Remove-ADUser</span> <span class="n">-Identity</span> <span class="n">com_01</span> <span class="n">-Confirm</span><span class="p">:</span><span class="nv">$false</span>
 </code></pre></div></figure>
 <h3>Plantilles de comptes</h3>
-<p>Un compte <strong>plantilla</strong> és un usuari deshabilitat que no és de ningú: només té configurats els valors comuns d'un departament (grups, horari, equips permesos, caducitat...). Per crear un usuari nou només cal fer-hi clic dret → <strong>Copia...</strong>. Els atributs que no són personals es copien tots.</p>
+<p>Un compte <strong>plantilla</strong> és un usuari deshabilitat que no és de ningú: només té configurats els valors comuns d'un departament (grups, horari, equips permesos, caducitat...). Per crear un usuari nou només cal fer-hi clic dret → <strong>Copia...</strong>. Es copien els grups, l'horari, les restriccions d'inici de sessió i el camí del perfil; el nom, el nom d'inici de sessió i la contrasenya s'han d'indicar de nou.</p>
 <div class="exercise" data-id="tema-1/bloc-3#1"><header><div class="ex-title"><span>Exercici:</span>Alta d&#x27;una empresa</div><span class="lvl Intermedi">Intermedi</span><span class="time">60 min</span><label class="done"><input type="checkbox"> Fet</label></header><div class="ex-body"><p>Al vostre domini creeu una UO d'usuaris i una d'equips. Dins de la d'usuaris, creeu els departaments <strong>Comptabilitat</strong> (12 persones en dos torns: 6:00 i 18:00), <strong>Logística</strong> (12 persones en tres torns: 8, 12 i 16), <strong>Manteniment</strong> (4), <strong>Direcció</strong> (2) i <strong>Producció</strong> (24, en tres torns). Els noms d'usuari són <code>dep_xx</code> (les tres primeres lletres del departament i el número). Feu una plantilla per departament, apliqueu-hi els horaris de comptabilitat i logística, i finalment doneu de baixa el departament de Producció.</p></div><details><summary>Veure pistes</summary><ul>
 <li>Feu servir un CSV i <code>Import-Csv</code> per crear els 12 o 24 usuaris de cop.</li>
 <li>Els torns es configuren amb <em>Hores d'inici de sessió</em> de la plantilla.</li>
@@ -287,7 +289,7 @@
 </tr>
 <tr>
 <td><strong>Domini local</strong></td>
-<td>Usuaris i grups globals o universals de <strong>qualsevol</strong> domini</td>
+<td>Usuaris i grups globals o universals de <strong>qualsevol</strong> domini (i grups de domini local del mateix domini)</td>
 <td>Només al seu propi domini</td>
 </tr>
 <tr>
@@ -321,6 +323,7 @@ Comptes d&#39;usuari (Accounts)
               al qual s&#39;assignen els Permisos sobre la carpeta
 </code></pre></div></figure>
 <p>Per exemple: l'usuari <code>com_01</code> és membre del grup global <code>G_Comptabilitat</code>. Aquest grup és membre del grup de domini local <code>DL_Comptabilitat_Modificar</code>, i sobre la carpeta <code>D:\Comptabilitat</code> només s'ha donat el permís <em>Modificar</em> a <code>DL_Comptabilitat_Modificar</code>. Quan <code>com_01</code> canviï de departament, només cal canviar-lo de grup global, sense tocar cap permís.</p>
+<div class="callout informacio"><p class="ctitle">Informació</p><p><strong>AGUDLP.</strong> En un bosc amb diversos dominis s'afegeix un grup <strong>Universal</strong> entre el global i el de domini local. Amb un sol domini, com el vostre, no cal.</p></div>
 <figure class="code"><figcaption><span class="lang">PowerShell</span><span class="title">Crear grups i afegir-hi membres</span><button class="copy" type="button">Copia</button></figcaption><div class="hl"><pre><code><span class="nb">New-ADGroup</span> <span class="n">-Name</span> <span class="s2">&quot;G_Comptabilitat&quot;</span> <span class="n">-GroupScope</span> <span class="n">Global</span> <span class="n">-GroupCategory</span> <span class="n">Security</span> <span class="p">`</span>
   <span class="n">-Path</span> <span class="s2">&quot;OU=Grups,DC=ad,DC=vidal,DC=cat&quot;</span>
 <span class="nb">New-ADGroup</span> <span class="n">-Name</span> <span class="s2">&quot;DL_Comptabilitat_Modificar&quot;</span> <span class="n">-GroupScope</span> <span class="n">DomainLocal</span> <span class="n">-GroupCategory</span> <span class="n">Security</span> <span class="p">`</span>
@@ -386,6 +389,38 @@ Comptes d&#39;usuari (Accounts)
 <li>A cada usuari: <em>Propietats → Perfil → Camí del perfil</em>: <code>\\SERVIDOR\Perfils$\%username%</code>.</li>
 <li>Inicieu sessió amb l'usuari en un client: es crearà <code>\\SERVIDOR\Perfils$\usuari.V6</code>. Feu canvis a l'escriptori, tanqueu sessió i comproveu-los en un altre equip.</li>
 </ol>
+<p>Configuració habitual dels permisos de la carpeta <code>Perfils$</code>:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>On</th>
+<th>Qui</th>
+<th>Permís</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Compartició</td>
+<td>Authenticated Users</td>
+<td>Control total (el control fi es fa amb NTFS)</td>
+</tr>
+<tr>
+<td>NTFS</td>
+<td>Administrators i SYSTEM</td>
+<td>Control total</td>
+</tr>
+<tr>
+<td>NTFS</td>
+<td>Creator Owner</td>
+<td>Control total, només a subcarpetes i fitxers</td>
+</tr>
+<tr>
+<td>NTFS</td>
+<td>Domain Users</td>
+<td>Llistar la carpeta i crear carpetes, <strong>només en aquesta carpeta</strong></td>
+</tr>
+</tbody>
+</table></div>
 <figure class="code"><figcaption><span class="lang">PowerShell</span><span class="title">Assignar el camí del perfil a tot un grup</span><button class="copy" type="button">Copia</button></figcaption><div class="hl"><pre><code><span class="nb">Get-ADGroupMember</span> <span class="s2">&quot;G_Comptabilitat&quot;</span> <span class="p">|</span> <span class="k">ForEach</span><span class="n">-Object</span> <span class="p">{</span>
   <span class="nb">Set-ADUser</span> <span class="nv">$_</span><span class="p">.</span><span class="n">SamAccountName</span> <span class="n">-ProfilePath</span> <span class="s2">&quot;\\SERVIDOR\Perfils$\</span><span class="p">$(</span><span class="nv">$_</span><span class="p">.</span><span class="n">SamAccountName</span><span class="p">)</span><span class="s2">&quot;</span>
 <span class="p">}</span>
@@ -398,7 +433,7 @@ Comptes d&#39;usuari (Accounts)
 <li>Tanqueu sessió i, al servidor, aneu a <code>\\SERVIDOR\Perfils$\usuari.V6</code>. Amb «Mostra els fitxers ocults» activat, canvieu el nom de <code>NTUSER.DAT</code> a <code>NTUSER.MAN</code>.</li>
 <li>Per als altres usuaris, copieu aquesta carpeta a la seva ruta i apunteu-hi el camí del perfil des del servidor (això és més ràpid que repetir tot el procés).</li>
 </ol>
-<div class="callout canvi"><p class="ctitle">Què ha canviat respecte dels apunts antics</p><p>Als apunts antics (Windows XP) la carpeta del perfil no tenia sufix. Als clients moderns porta un sufix de versió (<code>.V6</code> per a Windows 10 i 11). A més, Microsoft ja no recomana els perfils mòbils clàssics per a entorns grans amb Windows 10/11 per la mida dels perfils. Les alternatives actuals són la <strong>redirecció de carpetes</strong> per GPO (Documents i Escriptori es queden al servidor) i les solucions de contenidors de perfil com <em>FSLogix</em>.</p></div>
+<div class="callout canvi"><p class="ctitle">Què ha canviat respecte dels apunts antics</p><p>Als apunts antics (Windows XP) la carpeta del perfil no tenia sufix. Als clients moderns porta un sufix de versió (<code>.V6</code> per a Windows 10 i 11). A més, els perfils mòbils clàssics tenen limitacions amb Windows 10/11 (perfils molt grans, inicis de sessió lents, aplicacions modernes que no s'hi porten bé). Les alternatives que s'usen avui són la <strong>redirecció de carpetes</strong> per GPO (Documents i Escriptori es queden al servidor) i les solucions de contenidors de perfil com <em>FSLogix</em>.</p></div>
 
 <div class="exercise" data-id="tema-1/bloc-3#1"><header><div class="ex-title"><span>Exercici:</span>Perfils mòbils i obligatoris</div><span class="lvl Avançat">Avançat</span><span class="time">60 min</span><label class="done"><input type="checkbox"> Fet</label></header><div class="ex-body"><p>Creeu un usuari amb perfil mòbil, inicieu sessió en dos clients diferents i comproveu que l'escriptori el segueix. Convertiu-lo després en obligatori i comproveu que els canvis no es guarden. Finalment creeu dos usuaris més amb el mateix perfil de la manera més ràpida possible.</p></div><details><summary>Veure pistes</summary><ul>
 <li>No oblideu activar «Mostra els fitxers ocults» i les extensions.</li>
@@ -417,7 +452,7 @@ Comptes d&#39;usuari (Accounts)
 
 <figure class="code"><figcaption><span class="lang">Text</span><button class="copy" type="button">Copia</button></figcaption><div class="hl"><pre><code>Local  →  Site (lloc)  →  Domain (domini)  →  OU (unitat organitzativa)
 </code></pre></div></figure>
-<p>Les de la UO més propera a l'objecte tenen l'última paraula. Si es vol que una GPO no es pugui modificar, es marca com a <strong>Imposada</strong> (<em>Enforced</em>); si es vol que una UO no rebi les de sobre, s'activa <strong>Bloqueja l'herència</strong>.</p>
+<p>Les de la UO més propera a l'objecte tenen l'última paraula. Si es vol que una GPO no es pugui modificar, es marca com a <strong>Imposada</strong> (<em>Enforced</em>); si es vol que una UO no rebi les de sobre, s'activa <strong>Bloqueja l'herència</strong>. Si hi ha conflicte, una GPO imposada guanya sempre.</p>
 <div class="callout important"><p class="ctitle">Important</p><p>Les GPO <strong>només es poden enllaçar</strong> a dominis, llocs i UO. Els contenidors predeterminats <code>Users</code> i <code>Computers</code> no són UO. Per això els equips i els usuaris nous s'han de moure a UO pròpies (o redirigir la creació per defecte amb <code>redircmp</code> i <code>redirusr</code>).</p></div>
 <h3>Crear i enllaçar una GPO</h3>
 <p>Amb l'eina <em>Administració de directives de grup</em> (<code>gpmc.msc</code>): clic dret sobre la UO → <em>Crea un GPO en aquest domini i enllaça'l aquí</em> → clic dret sobre la GPO → <em>Edita</em>. Les directives es divideixen en <strong>Configuració de l'equip</strong> (s'apliquen en engegar) i <strong>Configuració de l'usuari</strong> (en iniciar sessió).</p>
@@ -440,7 +475,7 @@ Comptes d&#39;usuari (Accounts)
 </tr>
 <tr>
 <td>Mapar una unitat de xarxa</td>
-<td>Usuari → Preferències → Configuració de Windows → <em>Assignacions d'unitat</em></td>
+<td>Usuari → Preferències → Configuració de Windows → <em>Drive Maps</em> (assignacions d'unitat)</td>
 </tr>
 <tr>
 <td>Redirigir Documents al servidor</td>
@@ -448,7 +483,7 @@ Comptes d&#39;usuari (Accounts)
 </tr>
 <tr>
 <td>Política de contrasenyes</td>
-<td>Equip → Configuració de Windows → Seguretat → Directives de compte (només al nivell de domini)</td>
+<td>Equip → Configuració de Windows → Seguretat → Directives de compte (s'aplica al domini sencer; per a grups concrets existeixen les polítiques de contrasenya específiques, <em>PSO</em>)</td>
 </tr>
 </tbody>
 </table></div>
@@ -460,13 +495,93 @@ Comptes d&#39;usuari (Accounts)
 <span class="n">gpresult</span> <span class="p">/</span><span class="nb">r </span>                    <span class="c"># resum: quines GPO s&#39;han aplicat</span>
 <span class="n">gpresult</span> <span class="p">/</span><span class="nb">h </span><span class="s2">&quot;$env:USERPROFILE\informe.html&quot;</span>   <span class="c"># informe detallat en HTML</span>
 </code></pre></div></figure>
-<p>Si una directiva «no funciona», gairebé sempre és perquè l'usuari o l'equip no és a la UO correcta, perquè hi ha una altra GPO que la contradiu, o perquè no s'ha refrescat (per defecte cada 90 minuts).</p>
+<p>Si una directiva «no funciona», gairebé sempre és perquè l'usuari o l'equip no és a la UO correcta, perquè hi ha una altra GPO que la contradiu, o perquè no s'ha refrescat (als equips i usuaris cada 90 minuts, amb un marge aleatori de fins a 30; als controladors de domini, cada 5).</p>
 <div class="exercise" data-id="tema-1/bloc-3#1"><header><div class="ex-title"><span>Exercici:</span>Configura directives de grup</div><span class="lvl Intermedi">Intermedi</span><span class="time">60 min</span><label class="done"><input type="checkbox"> Fet</label></header><div class="ex-body"><p>Creeu una GPO enllaçada a l'UO de Comptabilitat que (1) impedeixi l'accés al Tauler de control i (2) canviï el fons d'escriptori. Creeu una altra a l'UO de Direcció que no tingui la primera restricció. Verifiqueu amb un client que un usuari de cada UO té resultats diferents, i feu servir <code>gpresult</code> com a evidència.</p></div><details><summary>Veure pistes</summary><ul>
 <li>Comprova primer que l'usuari és realment a l'UO on has enllaçat la GPO.</li>
 <li><code>gpupdate /force</code> i tanqueu sessió abans de provar.</li>
 </ul></details></div>
 
 <div class="callout exit"><p class="ctitle">Èxit</p><p><strong>Domini completat.</strong> Ja teniu servidor, domini, usuaris ordenats en UO, grups organitzats amb AGDLP, perfils que segueixen l'usuari i directives que fan complir les normes. Tot això és el RA2 i el RA3 sobre una plataforma Windows. Al següent bloc fareu el mateix amb Linux.</p></div>
+</section><section class="sec" id="seccio-6"><h2>6. Resum del tema i autoavaluació</h2><p>Abans de passar al Tema 2, repasseu el que heu après amb aquest resum visual.</p>
+<figure class="diagram"><svg viewBox="0 0 1000 1500" role="img" aria-label="Resum visual del Tema 1: instal·lar el servidor, crear el domini, usuaris grups i perfils, i errors típics"><defs><marker id="mfin" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path class="ar2" d="M0 0L10 5L0 10z"/></marker></defs>
+<rect class="ac" x="0" y="0" width="1000" height="130"/>
+<text class="on hd" x="500" y="62" text-anchor="middle">Tema 1 · Sistemes operatius propietaris en xarxa</text>
+<text class="on t3" x="500" y="98" text-anchor="middle">Del servidor buit al domini governat</text>
+<rect class="hi" x="30" y="160" width="940" height="330" rx="16"/>
+<circle class="ac" cx="76" cy="206" r="26"/><text class="on t2" x="76" y="215" text-anchor="middle">1</text>
+<text class="ic" x="128" y="218" text-anchor="middle">🖥️</text><text class="t2" x="160" y="216">Instal·lar el servidor</text>
+<text class="sm t3" x="944" y="214" text-anchor="end">Bloc 1.1</text>
+<text class="t1" x="60" y="272">• Server Core o Desktop Experience (a l&#x27;aula)</text>
+<text class="t1" x="60" y="312">• Discs nous: GPT amb UEFI; sistema en NTFS</text>
+<text class="t1" x="60" y="352">• IP estàtica i nom d&#x27;equip abans de res</text>
+<text class="t1" x="60" y="392">• Documenta: nom, IP, versió i rols</text>
+<rect class="box" x="560" y="248" width="390" height="150" rx="10"/>
+<text class="cmd" x="574" y="280">Rename-Computer -NewName PCXYZ</text>
+<text class="cmd" x="574" y="310">New-NetIPAddress -InterfaceAlias ...</text>
+<text class="cmd" x="574" y="340">Enable-NetFirewallRule (ICMP)</text>
+<text class="cmd" x="574" y="370">Test-NetConnection IP -Port 445</text>
+<rect class="wr" x="60" y="426" width="880" height="44" rx="10"/><text class="t3" x="78" y="455">⚠️ El ping no respon? Activa la regla ICMP del tallafocs.</text>
+<path class="ln2" d="M500 494 L500 516" marker-end="url(#mfin)"/>
+<rect class="hi" x="30" y="520" width="940" height="330" rx="16"/>
+<circle class="ac" cx="76" cy="566" r="26"/><text class="on t2" x="76" y="575" text-anchor="middle">2</text>
+<text class="ic" x="128" y="578" text-anchor="middle">🏢</text><text class="t2" x="160" y="576">Crear el domini</text>
+<text class="sm t3" x="944" y="574" text-anchor="end">Bloc 1.2</text>
+<text class="t1" x="60" y="632">• Active Directory = LDAP + Kerberos + DNS</text>
+<text class="t1" x="60" y="672">• Bosc &gt; arbre &gt; domini &gt; UO &gt; objectes</text>
+<text class="t1" x="60" y="712">• Com a mínim dos controladors de domini</text>
+<text class="t1" x="60" y="752">• Confiança: qui té usuaris i qui té recursos</text>
+<rect class="box" x="560" y="608" width="390" height="150" rx="10"/>
+<text class="cmd" x="574" y="640">Install-ADDSForest -DomainName ...</text>
+<text class="cmd" x="574" y="670">Add-Computer -DomainName ...</text>
+<text class="cmd" x="574" y="700">Get-ADTrust -Filter *</text>
+<text class="cmd" x="574" y="730">nltest /sc_verify:domini</text>
+<rect class="wr" x="60" y="786" width="880" height="44" rx="10"/><text class="t3" x="78" y="815">⚠️ El client ha de tenir com a DNS el controlador de domini.</text>
+<path class="ln2" d="M500 854 L500 876" marker-end="url(#mfin)"/>
+<rect class="hi" x="30" y="880" width="940" height="330" rx="16"/>
+<circle class="ac" cx="76" cy="926" r="26"/><text class="on t2" x="76" y="935" text-anchor="middle">3</text>
+<text class="ic" x="128" y="938" text-anchor="middle">👥</text><text class="t2" x="160" y="936">Usuaris, grups i perfils</text>
+<text class="sm t3" x="944" y="934" text-anchor="end">Bloc 1.3</text>
+<text class="t1" x="60" y="992">• UO per ordenar; grups per donar permisos</text>
+<text class="t1" x="60" y="1032">• AGDLP: usuari &gt; global &gt; domini local &gt; permís</text>
+<text class="t1" x="60" y="1072">• Perfil local, mòbil o obligatori (.MAN)</text>
+<text class="t1" x="60" y="1112">• GPO: Local &gt; Lloc &gt; Domini &gt; UO</text>
+<rect class="box" x="560" y="968" width="390" height="150" rx="10"/>
+<text class="cmd" x="574" y="1000">New-ADUser / Import-Csv</text>
+<text class="cmd" x="574" y="1030">New-ADGroup -GroupScope Global</text>
+<text class="cmd" x="574" y="1060">gpupdate /force</text>
+<text class="cmd" x="574" y="1090">gpresult /r</text>
+<rect class="wr" x="60" y="1146" width="880" height="44" rx="10"/><text class="t3" x="78" y="1175">⚠️ La GPO no s&#x27;aplica? Mira que l&#x27;objecte sigui a la UO correcta.</text>
+<text class="t2" x="30" y="1262">🔧 Quan alguna cosa falla</text>
+<rect class="nw" x="30" y="1285" width="455" height="68" rx="12"/><text class="b t1" x="46" y="1314">No es pot unir al domini</text><text class="t3" x="46" y="1338">→ DNS del client mal configurat</text>
+<rect class="nw" x="515" y="1285" width="455" height="68" rx="12"/><text class="b t1" x="531" y="1314">Error de Kerberos o accés denegat</text><text class="t3" x="531" y="1338">→ hora desincronitzada (més de 5 min)</text>
+<rect class="nw" x="30" y="1365" width="455" height="68" rx="12"/><text class="b t1" x="46" y="1394">Perfil temporal en iniciar sessió</text><text class="t3" x="46" y="1418">→ permisos de la carpeta del perfil</text>
+<rect class="nw" x="515" y="1365" width="455" height="68" rx="12"/><text class="b t1" x="531" y="1394">La confiança no es valida</text><text class="t3" x="531" y="1418">→ reenviadors DNS, hora i tallafocs</text>
+<text class="sm" x="500" y="1478" text-anchor="middle">SOX · MP0224 · Institut F. Vidal i Barraquer · Curs 2025-2026</text>
+</svg><figcaption>Resum visual del Tema 1. La podeu descarregar en PNG o SVG des del Moodle.</figcaption></figure>
+
+<h3>Comproveu que sabeu...</h3>
+<ul>
+<li>Explicar la diferència entre un grup de treball i un domini, i què aporta cada peça d'Active Directory (LDAP, Kerberos i DNS).</li>
+<li>Triar edició, esquema de particions i sistema d'arxius per a un servidor, i instal·lar-lo amb IP estàtica i connectivitat comprovada.</li>
+<li>Crear un domini, unir-hi un client, afegir un segon controlador i establir (i esborrar) una relació de confiança.</li>
+<li>Organitzar usuaris en UO, grups amb AGDLP, perfils mòbils o obligatoris i directives de grup.</li>
+</ul>
+<div class="exercise" data-id="tema-1/bloc-3#1"><header><div class="ex-title"><span>Exercici:</span>Autoavaluació del Tema 1</div><span class="lvl Intermedi">Intermedi</span><span class="time">20 min</span><label class="done"><input type="checkbox"> Fet</label></header><div class="ex-body"><p>Responeu sense mirar els apunts i comproveu-ho després.</p>
+<ol>
+<li>Un client no es pot unir al domini i diu que no troba el controlador. Quina és la causa més probable?</li>
+<li>Per què un domini hauria de tenir almenys dos controladors?</li>
+<li>El domini A confia en el domini B. Quins usuaris poden accedir a quins recursos?</li>
+<li>Com ordenaríeu els permisos d'una carpeta de Comptabilitat amb AGDLP?</li>
+<li>Una GPO enllaçada a una UO no s'aplica a un usuari. Quines dues coses comprovaríeu?</li>
+<li>Quina diferència hi ha entre un perfil mòbil i un d'obligatori?</li>
+</ol></div><details><summary>Veure pistes</summary><ol>
+<li>El DNS del client no apunta al controlador de domini.</li>
+<li>Perquè, si el primer cau, el segon continua autenticant i la informació no es perd.</li>
+<li>Els usuaris de B poden accedir als recursos d'A (la confiança i l'accés van en sentits contraris).</li>
+<li>Usuaris → grup global del departament → grup de domini local del recurs → permís sobre la carpeta.</li>
+<li>Que l'usuari és realment a aquella UO i el resultat real amb <code>gpresult /r</code> (després d'un <code>gpupdate /force</code>).</li>
+<li>El mòbil guarda els canvis i segueix l'usuari; l'obligatori és de només lectura i descarta els canvis en sortir.</li>
+</ol></details></div>
 </section><p class="ex-progress"></p><div class="pager"><a class="prev" rel="prev" href="../../tema-1/bloc-2/"><small>← Anterior</small>1.2 Dominis i Active Directory</a><span></span></div></div></div>
 <footer class="site-footer">Departament d'Informàtica · Institut F. Vidal i Barraquer · Tarragona · Curs 2025-2026. Basat en el curs de Moodle del mòdul MP0224 i la programació del departament.</footer>
 </main>
