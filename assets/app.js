@@ -128,6 +128,7 @@
     var ub = activePage.getAttribute('data-nunits'), bb = activePage.getAttribute('data-nblocs');
     var txt = 'Curs SOX';
     if (u && b) txt = 'Tema (' + u + '/' + ub + ')  Bloc (' + b + '/' + bb + ')  Secció (' + (secIdx + 1) + '/' + sections.length + ')';
+    else if (u && activePage.getAttribute('data-kind') === 'resum') txt = 'Tema (' + u + '/' + ub + ')  Resum  Secció (' + (secIdx + 1) + '/' + sections.length + ')';
     else if (u) txt = 'Tema (' + u + '/' + ub + ')';
     status.textContent = txt;
   }
